@@ -10,7 +10,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+
   <!--Bootstrap-->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -40,10 +40,7 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img id="logo" src="/img/logo.png" />
-          <span id="logo-name">
-            {{ config('app.name', 'Laravel') }}
-          </span>
+          <img id="" src="/img/logo2.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -52,7 +49,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
-
+            <li class="nav-item">
+              <a class="nav-link" id="nav-link" href="#">
+                Ціни
+              </a>
+            </li>
           </ul>
 
           <!-- Right Side Of Navbar -->
@@ -91,13 +92,11 @@
       </div>
     </nav>
 
-    <main class="py-4">
-        @yield('content')
+    <main>
+      @yield('content')
     </main>
 
-    <footer id="footer" class="text-center w-100 py-4">
-      © 2019 Copyright: KН-17-2 Яремчук Юрій
-    </footer>
+    
   </div>
 </body>
 </html>

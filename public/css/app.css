@@ -1,7 +1,8 @@
 html, body {
-    background-image: url('/img/club-photo2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('/img/back1.jpg'), url('/img/back2.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: cover, cover;
+    background-position: center, center;
     color: #000;
     font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
     font-weight: 200;
@@ -9,16 +10,32 @@ html, body {
     margin: 0;
 }
 
-main {
-  margin-bottom: 9rem;
-}
-
 html {
   position: relative;
 }
 
-#welcome-title {
+#site-desc {
   color: #fff;
+}
+
+#site-hr {
+  border-top: 1px dotted #ffef0a;
+}
+
+#main-img {
+  width: 75%;
+}
+
+#address-title {
+  text-decoration: underline;
+}
+
+#left-info {
+  color: #ffef0a;
+}
+
+#welcome-title {
+  font-size: 1.5rem;
 }
 
 #club-info {
@@ -27,28 +44,27 @@ html {
 }
 
 #footer {
-  color: #fff;
-  
+  color: #ffef0a;
   position: absolute;
   bottom: 0;
 }
 
 #nav-link {
-  color: #708090;
+  color: #fff;
   font-size: 1.2rem;
 }
 
 #nav-link:hover {
-  color: #000;
+  color: #ffef0a;
   text-decoration: none;
 }
 
 #logo-name {
-  color: #708090;
+  color: #fff;
 }
 
 #logo-name:hover {
-  color: #000;
+  color: #ffef0a;
   text-decoration: none;
 }
 
