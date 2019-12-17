@@ -19,7 +19,6 @@ main {
 }
 
 #footer-contacts {
-  margin-right: 15px;
   font-size: 0.8rem;
 }
 
@@ -59,7 +58,7 @@ main {
 #copyright {
   font-size: 0.7rem;
   color: #566464;
-  margin-left: 20px;
+  padding-left: 40px;
 }
 
 #site-desc {
