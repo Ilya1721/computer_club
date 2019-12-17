@@ -18,6 +18,15 @@ main {
   margin-bottom: 9rem;
 }
 
+#footer-contacts {
+  margin-right: 15px;
+  font-size: 0.8rem;
+}
+
+.categories {
+  color: #fff;
+}
+
 #activity {
   color: #fff;
 }
@@ -50,6 +59,7 @@ main {
 #copyright {
   font-size: 0.7rem;
   color: #566464;
+  margin-left: 20px;
 }
 
 #site-desc {

@@ -109,19 +109,25 @@
     <div class="d-flex flex-row justify-content-center">
       <footer id="footer" class="text-center py-4">
         <div class="row">
-          <div id="copyright" class="col-4 text-justyfy">
+          <div id="copyright" class="col-4 text-justify">
             Copyright © 2012-2019 <span id="app-name">CyberZone.</span>
             All rights reserved Копіювання
             інформації без прямої активної
             гіперсилки на www.cyberzone.ua заборонено
           </div>
-          <div class="col-5">
-            <div class="d-flex jusitfy-content-between">
+          <div class="col-4">
+            <div class="d-flex justify-content-center">
               <a href="#" id="footer-link">Ціни</a>
               <a href="#" id="footer-link">Режим роботи</a>
+              <a href="#" id="footer-link">Забронювати місце</a>
             </div>
           </div>
-          <div class="col-3"></div>
+          <div id="footer-contacts" class="col-4 text-justify">
+            <span id="address-title">Адреса:</span> Разіна 17<br/>
+            ТЦ Метроград, 2-й поверх<br/>
+            <span id="address-title">телефон:</span> +380(93)247-56-47<br/>
+            <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
+          </div>
         </div>
       </footer>
     </div>

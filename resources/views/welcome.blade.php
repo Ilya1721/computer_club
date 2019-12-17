@@ -19,6 +19,25 @@
         25.12.2019 з 10.00.
         Турнір по <span id="game-name">Dota 2</span>
       </a><br />
+      <span id="category">Ігри</span>
+      <div class="categories">
+        CS GO<br/>
+        Dota 2<br/>
+        League of Legends<br/>
+        Lineage 2<br/>
+        Gta V<br/>
+        Red Alert 3<br/>
+        Red Dead Redemption 2<br/>
+        Serious Sam 2<br/>
+        FIFA 2018<br/>
+        PES 2018<br/>
+      </div>
+      <span id="category">Платформи</span>
+      <div class="categories">
+        ПК<br/>
+        XBox360<br/>
+        PS4<br/>
+      </div>
     </div>
     <div class="col-8 text-left">
       <img id="main-img" src="/img/main.png" />
