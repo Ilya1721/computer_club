@@ -11,7 +11,7 @@
         Участь в івентах
       </a><br />
     </div>
-    <div class="col-9 pl-0">
+    <div class="col-7 pl-0">
       <h1 class="text-yellow">Усі візити</h1>
       <div class="row justify-content-center mb-3">
         <a href="#" class="btn btn-block btn-warning w-50" role="button">
@@ -43,6 +43,7 @@
         </tbody>
       </table>
     </div>
+    <div class="col-2"></div>
   </div>
 </div>
 @endsection
