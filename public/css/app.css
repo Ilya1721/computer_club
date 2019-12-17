@@ -1,5 +1,7 @@
 html, body {
-    background-color: #ebedeb;
+    background-image: url('/img/club-photo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #000;
     font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
     font-weight: 200;
@@ -15,9 +17,18 @@ html {
   position: relative;
 }
 
+#welcome-title {
+  color: #fff;
+}
+
+#club-info {
+  min-width: 100px;
+  min-height: 300px;
+}
+
 #footer {
   color: #fff;
-  background: #191a19;
+  
   position: absolute;
   bottom: 0;
 }
