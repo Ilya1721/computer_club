@@ -54,6 +54,16 @@
                 Ціни
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-link" href="#">
+                Режим роботи
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-link" href="#">
+                Забронювати місце
+              </a>
+            </li>
           </ul>
 
           <!-- Right Side Of Navbar -->
