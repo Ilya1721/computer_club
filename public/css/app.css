@@ -1,0 +1,130 @@
+html, body {
+    background-image: url('/img/back1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #000;
+    font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
+    font-weight: 200;
+    min-height: 100%;
+    margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+main {
+  margin-bottom: 12rem;
+}
+
+.big-link {
+  font-size: 1.5rem;
+}
+
+.yellow-link {
+  color: #fff;
+}
+
+.yellow-link:hover {
+  color: #ffef0a;
+  text-decoration: none;
+}
+
+.text-yellow {
+  color: #ffef0a;
+}
+
+#footer-contacts {
+  font-size: 0.8rem;
+}
+
+#game-name {
+  color: #e71a3a;
+}
+
+#category {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  display: block;
+}
+
+#footer-link {
+  color: #fff;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+
+#footer-link:hover {
+  color: #ffef0a;
+  text-decoration: none;
+}
+
+#app-name {
+  color: #951717;
+}
+
+#copyright {
+  font-size: 0.7rem;
+  color: #566464;
+  padding-left: 40px;
+}
+
+#site-hr {
+  border-top: 1px dotted #ffef0a;
+}
+
+#main-img {
+  width: 75%;
+}
+
+#address-title {
+  text-decoration: underline;
+}
+
+#welcome-title {
+  font-size: 1.5rem;
+}
+
+#club-info {
+  min-width: 100px;
+  min-height: 300px;
+}
+
+#footer {
+  color: #ffef0a;
+  background: #0a0a0a;
+  position: absolute;
+  bottom: 15px;
+  width: 75%;
+  border-radius: 4px;
+}
+
+.central-links {
+  margin-left: 100px;
+}
+
+.logout-link {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.logout-link:hover {
+  color: #ffef0a;
+  text-decoration:none;
+}
+
+#nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#nav-link:hover {
+  color: #ffef0a;
+  text-decoration: none;
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
