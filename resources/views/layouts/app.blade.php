@@ -94,6 +94,10 @@
     <main class="py-4">
         @yield('content')
     </main>
+
+    <footer id="footer" class="text-center w-100 py-4">
+      © 2019 Copyright: KН-17-2 Яремчук Юрій
+    </footer>
   </div>
 </body>
 </html>

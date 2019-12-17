@@ -7,6 +7,21 @@ html, body {
     margin: 0;
 }
 
+main {
+  margin-bottom: 9rem;
+}
+
+html {
+  position: relative;
+}
+
+#footer {
+  color: #fff;
+  background: #191a19;
+  position: absolute;
+  bottom: 0;
+}
+
 #nav-link {
   color: #708090;
   font-size: 1.2rem;
