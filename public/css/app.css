@@ -107,6 +107,16 @@ main {
   margin-left: 100px;
 }
 
+.logout-link {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.logout-link:hover {
+  color: #ffef0a;
+  text-decoration:none;
+}
+
 #nav-link {
   color: #fff;
   font-size: 1.2rem;
