@@ -106,7 +106,25 @@
       @yield('content')
     </main>
 
-
+    <div class="d-flex flex-row justify-content-center">
+      <footer id="footer" class="text-center py-4">
+        <div class="row">
+          <div id="copyright" class="col-4 text-justyfy">
+            Copyright © 2012-2019 <span id="app-name">CyberZone.</span>
+            All rights reserved Копіювання
+            інформації без прямої активної
+            гіперсилки на www.cyberzone.ua заборонено
+          </div>
+          <div class="col-5">
+            <div class="d-flex jusitfy-content-between">
+              <a href="#" id="footer-link">Ціни</a>
+              <a href="#" id="footer-link">Режим роботи</a>
+            </div>
+          </div>
+          <div class="col-3"></div>
+        </div>
+      </footer>
+    </div>
   </div>
 </body>
 </html>
