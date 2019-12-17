@@ -1,8 +1,7 @@
 html, body {
     background-image: url('/img/back1.jpg'), url('/img/back2.jpg');
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
-    background-position: center, center;
     color: #000;
     font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
     font-weight: 200;
@@ -47,6 +46,10 @@ html {
   color: #ffef0a;
   position: absolute;
   bottom: 0;
+}
+
+.central-links {
+  margin-left: 100px;
 }
 
 #nav-link {

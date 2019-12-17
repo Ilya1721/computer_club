@@ -48,7 +48,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav central-links mr-auto">
             <li class="nav-item">
               <a class="nav-link" id="nav-link" href="#">
                 Ціни
@@ -96,7 +96,7 @@
       @yield('content')
     </main>
 
-    
+
   </div>
 </body>
 </html>
