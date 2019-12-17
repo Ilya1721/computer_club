@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/event', 'HomeController@event');
+Route::get('/event', 'EventController@index');
+Route::get('/game', 'GameController@index');
+Route::get('/platform', 'PlatformController@index');
