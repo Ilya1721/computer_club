@@ -31,6 +31,7 @@
         Serious Sam 2<br/>
         FIFA 2018<br/>
         PES 2018<br/>
+        <a id="other-games" href="#">Та інші...</a><br />
       </div>
       <span id="category">Платформи</span>
       <div class="categories">
