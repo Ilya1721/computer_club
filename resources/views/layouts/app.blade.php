@@ -64,6 +64,11 @@
                 Забронювати місце
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-link" href="/home">
+                Кабінет
+              </a>
+            </li>
           </ul>
 
           <!-- Right Side Of Navbar -->

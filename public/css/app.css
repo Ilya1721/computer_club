@@ -18,6 +18,23 @@ main {
   margin-bottom: 12rem;
 }
 
+.big-link {
+  font-size: 1.5rem;
+}
+
+.yellow-link {
+  color: #fff;
+}
+
+.yellow-link:hover {
+  color: #ffef0a;
+  text-decoration: none;
+}
+
+.text-yellow {
+  color: #ffef0a;
+}
+
 #other-games {
   color: #fff;
 }
