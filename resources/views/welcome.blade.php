@@ -12,7 +12,8 @@
       <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
     </div>
     <div class="col-8 text-left">
-      
+      <img id="main-img" src="/img/main.png" />
+      <img src="/img/comp.png" />
     </div>
   </div>
 </div>

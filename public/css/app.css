@@ -1,7 +1,7 @@
 html, body {
-    background-image: url('/img/back1.jpg'), url('/img/back2.jpg');
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
+    background-image: url('/img/back1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #000;
     font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
     font-weight: 200;
