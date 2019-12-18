@@ -50,7 +50,7 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav central-links mr-auto">
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="#">
+              <a class="nav-link" id="nav-link" href="/price">
                 Ціни
               </a>
             </li>
@@ -125,7 +125,7 @@
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-center">
-              <a href="#" id="footer-link">Ціни</a>
+              <a href="/price" id="footer-link">Ціни</a>
               <a href="#" id="footer-link">Режим роботи</a>
               <a href="#" id="footer-link">Забронювати місце</a>
             </div>

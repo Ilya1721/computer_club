@@ -14,3 +14,6 @@
 <a href="/platform" class="yellow-link big-link">
   Усі платформи
 </a><br />
+<a href="/price" class="yellow-link big-link">
+  Ціни
+</a><br />
