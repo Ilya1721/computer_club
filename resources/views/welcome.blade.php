@@ -11,12 +11,17 @@
       <span id="address-title">телефон:</span> +380(93)247-56-47<br/>
       <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
       <span id="category">Анонси</span>
-      <a class="text-white" href="#">
+      <a class="text-white" href="/event/1">
         18.12.2019 з 10.00.
         Турнір по <span id="game-name">CS GO</span>
       </a><br />
-      <a class="text-white" href="#">
+      <a class="text-white" href="/event/2">
         25.12.2019 з 10.00.
+        Турнір по <span id="game-name">Dota 2</span>
+      </a><br />
+      <span id="category">Останні події</span>
+      <a class="text-white" href="/event/2">
+        25.11.2019 відбувся
         Турнір по <span id="game-name">Dota 2</span>
       </a><br />
       <span id="category">Ігри</span>
@@ -31,7 +36,7 @@
         Serious Sam 2<br/>
         FIFA 2018<br/>
         PES 2018<br/>
-        <a class="text-white" href="#">Та інші...</a><br />
+        <a class="text-white" href="/game">Та інші...</a><br />
       </div>
       <span id="category">Платформи</span>
       <div class="text-white">

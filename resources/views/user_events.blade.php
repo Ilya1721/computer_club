@@ -71,7 +71,11 @@
           <tr>
             <td>1</td>
             <td>17.12.2019 - 21:00</td>
-            <td>Турнір по <span id="game-name">СS GO</span></td>
+            <td>
+              <a href="/event/1" class="yellow-link">
+                Турнір по <span id="game-name">СS GO</span>
+              </a>
+            </td>
             <td>3 години</td>
             <td>25 грн.</td>
             <td>Головний</td>
