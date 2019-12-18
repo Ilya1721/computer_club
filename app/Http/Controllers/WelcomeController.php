@@ -13,12 +13,10 @@ class WelcomeController extends Controller
     {
       $games = Game::all()->take(10);
       $platforms = Platform::all();
-      $club = Club::first();
 
       return view('welcome', [
         'games' => $games,
         'platforms' => $platforms,
-        'club' => $club,
       ]);
     }
 }

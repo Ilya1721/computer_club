@@ -13,12 +13,11 @@
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">
-                FPS
+              @foreach($genres as $genre)
+              <option value="{{ $genre->id }}">
+                {{ $genre->name }}
               </option>
-              <option value="2">
-                MMO RPG
-              </option>
+              @endforeach
               <option value="all">
                 Усі жанри
               </option>
@@ -35,8 +34,8 @@
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">Назва</option>
-              <option value="2">Жанр</option>
+              <option value="name">Назва</option>
+              <option value="genre">Жанр</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"
@@ -66,7 +65,11 @@
             <td>{{ $game->id }}</td>
             <td><img class="game-image" src="{{ $game->image }}" /></td>
             <td><span id="game-name">{{ $game->name }}</span></td>
-            <td>FPS</td>
+            <td>
+              @foreach($game->genres as $genre)
+              {{ $genre->name }},
+              @endforeach
+            </td>
             <td>ПК Windows</td>
           </tr>
           @endforeach
