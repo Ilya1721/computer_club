@@ -8,7 +8,7 @@
     </div>
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Ціни</h1>
-      <img src="/img/price.gif" />
+      <img src="/storage/img/price.gif" />
     </div>
     <div class="col-1"></div>
   </div>

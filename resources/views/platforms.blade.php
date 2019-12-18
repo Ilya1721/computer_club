@@ -25,7 +25,7 @@
           @for($i = 0; $i < 5; $i++)
           <tr>
             <td>1</td>
-            <td><img class="game-image" src="/img/windows.jfif"></td>
+            <td><img class="game-image" src="/storage/img/windows.jfif"></td>
             <td>Windows</td>
           </tr>
           @endfor

@@ -64,7 +64,7 @@
           @for($i = 0; $i < 5; $i++)
           <tr>
             <td>1</td>
-            <td><img class="game-image" src="/img/cs-go.jfif" /></td>
+            <td><img class="game-image" src="/storage/img/cs-go.jfif" /></td>
             <td><span id="game-name">СS GO</span></td>
             <td>FPS</td>
             <td>ПК Windows</td>

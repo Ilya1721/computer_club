@@ -46,8 +46,8 @@
       </div>
     </div>
     <div class="col-8 text-left">
-      <img id="main-img" src="/img/main.png" />
-      <img src="/img/comp.png" />
+      <img id="main-img" src="/storage/img/main.png" />
+      <img src="/storage/img/comp.png" />
     </div>
   </div>
 </div>

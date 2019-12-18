@@ -24,13 +24,13 @@
       </p>
       <div class="row">
         <div class="col">
-          <img class="tournament-image" src="/img/tournament.jpg" />
+          <img class="tournament-image" src="/storage/storage/img/tournament.jpg" />
         </div>
         <div class="col">
-          <img class="tournament-image" src="/img/tournament2.jfif" />
+          <img class="tournament-image" src="/storage/storage/img/tournament2.jfif" />
         </div class="col">
         <div class="col">
-          <img class="tournament-image" src="/img/tournament3.jfif" />
+          <img class="tournament-image" src="/storage/storage/img/tournament3.jfif" />
         </div>
       </div>
     </div>
