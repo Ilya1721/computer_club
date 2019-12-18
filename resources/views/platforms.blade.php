@@ -13,28 +13,20 @@
           Анонси
         </a>
       </div>
-      <table class="table table-dark text-yellow" id="visits">
+      <table class="table text-left table-dark text-yellow" id="visits">
         <thead>
           <tr>
             <th>#</th>
-            <th>Дата і час івенту</th>
-            <th>Назва івенту</th>
-            <th>Час перебування</th>
-            <th>Сума</th>
-            <th>Зал</th>
-            <th>Місце</th>
+            <th>Фото</th>
+            <th>Назва</th>
           </tr>
         </thead>
         <tbody>
           @for($i = 0; $i < 5; $i++)
           <tr>
             <td>1</td>
-            <td>17.12.2019 - 21:00</td>
-            <td>Турнір по <span id="game-name">СS GO</span></td>
-            <td>3 години</td>
-            <td>25 грн.</td>
-            <td>Головний</td>
-            <td>17</td>
+            <td><img class="game-image" src="/img/windows.jfif"></td>
+            <td>Windows</td>
           </tr>
           @endfor
         </tbody>

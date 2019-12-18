@@ -18,6 +18,11 @@ main {
   margin-bottom: 12rem;
 }
 
+.game-image {
+  width: 150px;
+  height: 150px;
+}
+
 .big-link {
   font-size: 1.5rem;
 }
