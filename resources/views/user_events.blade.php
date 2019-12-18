@@ -13,6 +13,47 @@
           Анонси
         </a>
       </div>
+      <div class="row justify-content-center mb-3">
+        <form action="/game/filter" method="post" class="form-inline mr-3">
+          @csrf
+          <div class="input-group">
+            <select name="category" class="form-control">
+              <option value="1">
+                Турнір
+              </option>
+              <option value="2">
+                Виставка
+              </option>
+              <option value="all">
+                Усі івенти
+              </option>
+            </select>
+            <div class="input-group-append">
+              <button class="btn btn-warning" type="submit">
+                Filter<span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <form action="/game/search" method="post"
+         class="form-inline w-50 mr-3">
+          @csrf
+          <div class="input-group">
+            <select name="category" class="form-control">
+              <option value="1">Назва</option>
+            </select>
+            <input id="search" name="search"
+             class="w-50 input-group-append"
+             type="text" placeholder="Search"
+             aria-label="Search" />
+            <div class="input-group-append">
+              <button class="btn btn-warning" type="submit">
+                Search<span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>

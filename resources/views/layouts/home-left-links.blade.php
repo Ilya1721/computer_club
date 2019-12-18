@@ -14,3 +14,12 @@
 <a href="/platform" class="yellow-link big-link">
   Усі платформи
 </a><br />
+<a href="/price" class="yellow-link big-link">
+  Ціни
+</a><br />
+<a href="/schedule" class="yellow-link big-link">
+  Режим роботи
+</a><br />
+<a href="/visit/create" class="yellow-link big-link">
+  Забронювати місце
+</a><br />

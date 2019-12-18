@@ -50,17 +50,17 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav central-links mr-auto">
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="#">
+              <a class="nav-link" id="nav-link" href="/price">
                 Ціни
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="#">
+              <a class="nav-link" id="nav-link" href="/schedule">
                 Режим роботи
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="#">
+              <a class="nav-link" id="nav-link" href="/visit/create">
                 Забронювати місце
               </a>
             </li>
@@ -125,9 +125,9 @@
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-center">
-              <a href="#" id="footer-link">Ціни</a>
-              <a href="#" id="footer-link">Режим роботи</a>
-              <a href="#" id="footer-link">Забронювати місце</a>
+              <a href="/price" id="footer-link">Ціни</a>
+              <a href="/schedule" id="footer-link">Режим роботи</a>
+              <a href="/visit/create" id="footer-link">Забронювати місце</a>
             </div>
           </div>
           <div id="footer-contacts" class="col-4 text-justify">
