@@ -8,7 +8,7 @@
     </div>
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Режим роботи</h1>
-      <p class="text-white text-big">Клуб працює 24/7 з перервою з 7.00 до 9.00</p>
+      <p class="text-white text-big">Клуб працює {{ $club->schedule }}</p>
     </div>
     <div class="col-1"></div>
   </div>

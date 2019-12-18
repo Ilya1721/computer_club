@@ -10,4 +10,11 @@ class EventController extends Controller
     {
       return view('events');
     }
+
+    public function show($event)
+    {
+      return view('event', [
+        'event' => $event,
+      ]);
+    }
 }

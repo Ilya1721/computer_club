@@ -13,12 +13,11 @@
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">
-                FPS
+              @foreach($genres as $genre)
+              <option value="{{ $genre->id }}">
+                {{ $genre->name }}
               </option>
-              <option value="2">
-                MMO RPG
-              </option>
+              @endforeach
               <option value="all">
                 Усі жанри
               </option>
@@ -35,8 +34,8 @@
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">Назва</option>
-              <option value="2">Жанр</option>
+              <option value="name">Назва</option>
+              <option value="genre">Жанр</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"
@@ -61,19 +60,28 @@
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @foreach($games as $game)
           <tr>
-            <td>1</td>
-            <td><img class="game-image" src="/img/cs-go.jfif" /></td>
-            <td><span id="game-name">СS GO</span></td>
-            <td>FPS</td>
+            <td>{{ $game->id }}</td>
+            <td><img class="game-image" src="{{ $game->image }}" /></td>
+            <td><span id="game-name">{{ $game->name }}</span></td>
+            <td>
+              @foreach($game->genres as $genre)
+              {{ $genre->name }},
+              @endforeach
+            </td>
             <td>ПК Windows</td>
           </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>
     <div class="col-1"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center">
+      {{ $games->links() }}
+    </div>
   </div>
 </div>
 @endsection

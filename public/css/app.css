@@ -1,5 +1,5 @@
 html, body {
-    background-image: url('/img/back1.jpg');
+    background-image: url('/storage/img/back1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #000;
@@ -16,6 +16,15 @@ html {
 
 main {
   margin-bottom: 12rem;
+}
+
+.tournament-image {
+  width: 200px;
+  height: 200px;
+}
+
+.text-middle {
+  font-size: 1.2rem;
 }
 
 .text-big {

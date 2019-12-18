@@ -22,17 +22,22 @@
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @foreach($platforms as $platform)
           <tr>
-            <td>1</td>
-            <td><img class="game-image" src="/img/windows.jfif"></td>
-            <td>Windows</td>
+            <td>{{ $platform->id }}</td>
+            <td><img class="game-image" src="{{ $platform->image }}"></td>
+            <td>{{ $platform->name }}</td>
           </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>
     <div class="col-1"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center">
+      {{ $platforms->links() }}
+    </div>
   </div>
 </div>
 @endsection

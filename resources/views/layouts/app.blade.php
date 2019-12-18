@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="/img/logo2.png" />
+          <img src="/storage/img/logo2.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -118,7 +118,7 @@
       <footer id="footer" class="text-center py-4">
         <div class="row">
           <div id="copyright" class="col-4 text-justify">
-            Copyright © 2012-2019 <span id="app-name">CyberZone.</span>
+            Copyright © 2012-2019 <span id="app-name">{{ $club->name }}.</span>
             All rights reserved Копіювання
             інформації без прямої активної
             гіперсилки на www.cyberzone.ua заборонено
@@ -131,10 +131,11 @@
             </div>
           </div>
           <div id="footer-contacts" class="col-4 text-justify">
-            <span id="address-title">Адреса:</span> Разіна 17<br/>
-            ТЦ Метроград, 2-й поверх<br/>
-            <span id="address-title">телефон:</span> +380(93)247-56-47<br/>
-            <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
+            <span id="address-title">Адреса:</span>
+            {{ $club->street }} {{ $club->house }}<br/>
+            {{ $club->flat }}<br/>
+            <span id="address-title">телефон:</span> {{ $club->phone }}<br/>
+            <span id="address-title">Режим роботи:</span> {{ $club->schedule }}
           </div>
         </div>
       </footer>
