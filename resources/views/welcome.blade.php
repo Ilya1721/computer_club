@@ -33,9 +33,9 @@
       </div>
       <span id="category">Платформи</span>
       <div class="text-white">
-        ПК<br/>
-        XBox360<br/>
-        PS4<br/>
+        @foreach($platforms as $platform)
+          {{ $platform->name }}<br />
+        @endforeach
       </div>
     </div>
     <div class="col-8 text-left">
