@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
-    //
+    protected $guarded = [];
+
+    public function hall()
+    {
+      return $this->belongsTo(Hall::class);
+    }
+
+    public function activity_type()
+    {
+      return $this->belongsTo(ActivityType::class);
+    }
 }
