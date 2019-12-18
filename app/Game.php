@@ -12,4 +12,9 @@ class Game extends Model
     {
       return $this->belongsToMany(Genre::class);
     }
+
+    public function platforms()
+    {
+      return $this->belongsToMany(Platform::class);
+    }
 }
