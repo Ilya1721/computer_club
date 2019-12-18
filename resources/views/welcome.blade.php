@@ -36,6 +36,7 @@
         @foreach($platforms as $platform)
           {{ $platform->name }}<br />
         @endforeach
+        <a class="text-white" href="/platform">Та інші...</a><br />
       </div>
     </div>
     <div class="col-8 text-left">
