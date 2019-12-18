@@ -55,7 +55,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="#">
+              <a class="nav-link" id="nav-link" href="/schedule">
                 Режим роботи
               </a>
             </li>
@@ -126,7 +126,7 @@
           <div class="col-4">
             <div class="d-flex justify-content-center">
               <a href="/price" id="footer-link">Ціни</a>
-              <a href="#" id="footer-link">Режим роботи</a>
+              <a href="/schedule" id="footer-link">Режим роботи</a>
               <a href="#" id="footer-link">Забронювати місце</a>
             </div>
           </div>

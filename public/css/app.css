@@ -18,6 +18,10 @@ main {
   margin-bottom: 12rem;
 }
 
+.text-big {
+  font-size: 1.5rem;
+}
+
 .game-image {
   width: 150px;
   height: 150px;

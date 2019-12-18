@@ -23,3 +23,4 @@ Route::get('/event', 'EventController@index');
 Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');
+Route::get('/schedule', 'ScheduleController@index');
