@@ -17,4 +17,9 @@ class Activity extends Model
     {
       return $this->belongsTo(ActivityType::class);
     }
+
+    public function users()
+    {
+      return $this->belongsToMany(User::class);
+    }
 }
