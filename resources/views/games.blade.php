@@ -61,7 +61,7 @@
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @foreach($games as $game)
           <tr>
             <td>1</td>
             <td><img class="game-image" src="/storage/img/cs-go.jfif" /></td>
@@ -69,7 +69,7 @@
             <td>FPS</td>
             <td>ПК Windows</td>
           </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>

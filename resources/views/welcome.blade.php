@@ -26,16 +26,9 @@
       </a><br />
       <span id="category">Ігри</span>
       <div class="text-white">
-        CS GO<br/>
-        Dota 2<br/>
-        League of Legends<br/>
-        Lineage 2<br/>
-        Gta V<br/>
-        Red Alert 3<br/>
-        Red Dead Redemption 2<br/>
-        Serious Sam 2<br/>
-        FIFA 2018<br/>
-        PES 2018<br/>
+        @foreach($games as $game)
+          {{ $game->name }}<br/>
+        @endforeach
         <a class="text-white" href="/game">Та інші...</a><br />
       </div>
       <span id="category">Платформи</span>
