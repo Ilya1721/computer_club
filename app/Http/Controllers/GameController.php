@@ -9,8 +9,10 @@ class GameController extends Controller
 {
     public function index()
     {
-      $games = Game::all()->take(10);
+      $games = Game::paginate(5);
 
-      return view('games');
+      return view('games', [
+        'games' => $games,
+      ]);
     }
 }

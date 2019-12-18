@@ -63,9 +63,9 @@
         <tbody>
           @foreach($games as $game)
           <tr>
-            <td>1</td>
+            <td>{{ $game->id }}</td>
             <td><img class="game-image" src="/storage/img/cs-go.jfif" /></td>
-            <td><span id="game-name">СS GO</span></td>
+            <td><span id="game-name">{{ $game->name }}</span></td>
             <td>FPS</td>
             <td>ПК Windows</td>
           </tr>
@@ -74,6 +74,11 @@
       </table>
     </div>
     <div class="col-1"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center">
+      {{ $games->links() }}
+    </div>
   </div>
 </div>
 @endsection
