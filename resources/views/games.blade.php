@@ -64,7 +64,7 @@
           @foreach($games as $game)
           <tr>
             <td>{{ $game->id }}</td>
-            <td><img class="game-image" src="/storage/img/cs-go.jfif" /></td>
+            <td><img class="game-image" src="{{ $game->image }}" /></td>
             <td><span id="game-name">{{ $game->name }}</span></td>
             <td>FPS</td>
             <td>ПК Windows</td>
