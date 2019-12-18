@@ -70,11 +70,7 @@
               {{ $genre->name }},
               @endforeach
             </td>
-            <td>
-              @foreach($game->platforms as $platform)
-              {{ $platform->name }},
-              @endforeach
-            </td>
+            <td>ПК Windows</td>
           </tr>
           @endforeach
         </tbody>
