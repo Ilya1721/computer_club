@@ -118,7 +118,7 @@
       <footer id="footer" class="text-center py-4">
         <div class="row">
           <div id="copyright" class="col-4 text-justify">
-            Copyright © 2012-2019 <span id="app-name">CyberZone.</span>
+            Copyright © 2012-2019 <span id="app-name">{{ $club->name }}.</span>
             All rights reserved Копіювання
             інформації без прямої активної
             гіперсилки на www.cyberzone.ua заборонено
@@ -131,10 +131,11 @@
             </div>
           </div>
           <div id="footer-contacts" class="col-4 text-justify">
-            <span id="address-title">Адреса:</span> Разіна 17<br/>
-            ТЦ Метроград, 2-й поверх<br/>
-            <span id="address-title">телефон:</span> +380(93)247-56-47<br/>
-            <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
+            <span id="address-title">Адреса:</span>
+            {{ $club->street }} {{ $club->house }}<br/>
+            {{ $club->flat }}<br/>
+            <span id="address-title">телефон:</span> {{ $club->phone }}<br/>
+            <span id="address-title">Режим роботи:</span> {{ $club->schedule }}
           </div>
         </div>
       </footer>

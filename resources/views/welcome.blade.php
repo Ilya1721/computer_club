@@ -3,13 +3,14 @@
 <div class="container text-center">
   <div class="row mt-5">
     <div class="col-4 text-justify text-yellow">
-      <span id="welcome-title">{{ config('app.name') }}</span>
+      <span id="welcome-title">{{ $club->name }}</span>
       <span class="text-white">- найкращий комп`ютерний клуб міста<br/></span>
       <hr id="site-hr" />
-      <span id="address-title">Адреса:</span> Разіна 17<br/>
-      ТЦ Метроград, 2-й поверх<br/>
-      <span id="address-title">телефон:</span> +380(93)247-56-47<br/>
-      <span id="address-title">Режим роботи:</span> Кожний день. 9.00-24.00
+      <span id="address-title">Адреса:</span>
+      {{ $club->street }} {{ $club->house }}<br/>
+      {{ $club->flat }}<br/>
+      <span id="address-title">телефон:</span> {{ $club->phone }}<br/>
+      <span id="address-title">Режим роботи:</span> {{ $club->schedule }}
       <span id="category">Анонси</span>
       <a class="text-white" href="/event/1">
         18.12.2019 з 10.00.
