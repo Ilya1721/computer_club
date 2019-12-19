@@ -18,6 +18,7 @@ class UserActivity extends Migration
           $table->unsignedBigInteger('activity_id');
           $table->unsignedBigInteger('user_id');
           $table->unsignedBigInteger('activity_role_id');
+          $table->string('place')->nullable();
           $table->timestamp('start_date');
           $table->timestamp('end_date');
           $table->timestamp('updated_at')->useCurrent();

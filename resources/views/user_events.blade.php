@@ -57,35 +57,48 @@
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Дата і час івенту</th>
             <th>Назва івенту</th>
+            <th>Дата і час прибуття</th>
             <th>Час перебування</th>
+            <th>Роль у івенті</th>
             <th>Сума</th>
             <th>Зал</th>
             <th>Місце</th>
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @php($i = 0)
+          @foreach($user_events as $user_event)
           <tr>
-            <td>1</td>
-            <td>17.12.2019 - 21:00</td>
             <td>
-              <a href="/event/1" class="yellow-link">
-                Турнір по <span id="game-name">СS GO</span>
+              <a href="/event/1" class="text-white">
+                {{ $activity_info[$i]->activity_type->name }}
+                по
+                <span id="game-name">
+                  {{ $activity_info[$i]->game->name}}
+                </span>
               </a>
             </td>
-            <td>3 години</td>
-            <td>25 грн.</td>
-            <td>Головний</td>
-            <td>17</td>
+            <td>{{ date('d.m.Y-H:i', strtotime($user_event->start_date)) }}</td>
+            <td>{{ date('G', strtotime($user_event->end_date) -
+                             strtotime($user_event->start_date)) }} години
+            </td>
+            <td>{{ $user_event->name }}</td>
+            <td>{{ $user_event->price }} грн.</td>
+            <td>{{ $activity_info[$i]->hall->name }}</td>
+            <td>{{ $user_event->place }}</td>
           </tr>
-          @endfor
+          @php($i++)
+          @endforeach
         </tbody>
       </table>
     </div>
     <div class="col-1"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center">
+      {{ $user_events->links() }}
+    </div>
   </div>
 </div>
 @endsection

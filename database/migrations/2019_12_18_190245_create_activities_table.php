@@ -18,7 +18,6 @@ class CreateActivitiesTable extends Migration
             $table->unsignedBigInteger('activity_type_id');
             $table->unsignedBigInteger('hall_id');
             $table->unsignedBigInteger('game_id');
-            $table->string('place')->nullable();
             $table->text('description');
             $table->float('price');
             $table->timestamp('start_date');

@@ -84,5 +84,10 @@
     </div>
     <div class="col-1"></div>
   </div>
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center">
+      {{ $events->links() }}
+    </div>
+  </div>
 </div>
 @endsection
