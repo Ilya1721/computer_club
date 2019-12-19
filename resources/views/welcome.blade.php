@@ -12,19 +12,20 @@
       <span id="address-title">телефон:</span> {{ $club->phone }}<br/>
       <span id="address-title">Режим роботи:</span> {{ $club->schedule }}
       <span id="category">Анонси</span>
-      <a class="text-white" href="/event/1">
-        18.12.2019 з 10.00.
-        Турнір по <span id="game-name">CS GO</span>
-      </a><br />
-      <a class="text-white" href="/event/2">
-        25.12.2019 з 10.00.
-        Турнір по <span id="game-name">Dota 2</span>
-      </a><br />
+      @foreach($annonces as $annonce)
+        <a class="text-white" href="/event/1">
+          З {{ date('d.m.Y H:i', strtotime($annonce->start_date)) }}<br/>
+          по {{ date('d.m.Y H:i', strtotime($annonce->end_date)) }}
+          {{ $annonce->activity_type->name }} по
+          <span id="game-name">{{ $annonce->game->name }}</span>
+        </a><br />
+      @endforeach
       <span id="category">Останні події</span>
       <a class="text-white" href="/event/2">
         25.11.2019 відбувся
         Турнір по <span id="game-name">Dota 2</span>
       </a><br />
+      <a class="text-white" href="/event">Та інші...</a><br />
       <span id="category">Ігри</span>
       <div class="text-white">
         @foreach($games as $game)

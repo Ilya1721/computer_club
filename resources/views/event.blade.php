@@ -12,25 +12,25 @@
       </h1>
       <div class="row justify-content-center mb-3">
         <a href="#" class="btn btn-block btn-warning w-50" role="button">
-          Анонси
+          Зареєструватись
         </a>
       </div>
       <p class="text-white text-middle text-justify">
         Як і завжди наш клуб продовжує підтримувати
         кіберспорт і організовувати турніри найвищого
-        рівня. Не пропустіть бліжайшійтурнір - відбіркові
+        рівня. Не пропустіть найближчий турнір - відбіркові
         на справжню кіберолімпіаду WCG 2012. Відбіркові
         ігри на лані пройдуть в нашому клубі 27-28 жовтня.
       </p>
       <div class="row">
         <div class="col">
-          <img class="tournament-image" src="/storage/storage/img/tournament.jpg" />
+          <img class="tournament-image" src="/storage/img/tournament.jpg" />
         </div>
         <div class="col">
-          <img class="tournament-image" src="/storage/storage/img/tournament2.jfif" />
+          <img class="tournament-image" src="/storage/img/tournament2.jfif" />
         </div class="col">
         <div class="col">
-          <img class="tournament-image" src="/storage/storage/img/tournament3.jfif" />
+          <img class="tournament-image" src="/storage/img/tournament3.jfif" />
         </div>
       </div>
     </div>
