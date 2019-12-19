@@ -13,6 +13,11 @@ class Activity extends Model
       return $this->belongsTo(Hall::class);
     }
 
+    public function game()
+    {
+      return $this->belongsTo(Game::class);
+    }
+
     public function activity_type()
     {
       return $this->belongsTo(ActivityType::class);

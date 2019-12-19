@@ -17,11 +17,11 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('activity_type_id');
             $table->unsignedBigInteger('hall_id');
-            $table->string('name');
-            $table->string('place');
+            $table->unsignedBigInteger('game_id')->nullable();
+            $table->text('description')->nullable();
             $table->float('price');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

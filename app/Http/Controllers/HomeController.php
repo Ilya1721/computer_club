@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Activity;
 
 class HomeController extends Controller
 {
@@ -23,11 +26,47 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $user = Auth::user();
+      $visits = Activity::query()
+                        ->join('user_activity', 'activities.id',
+                               'user_activity.activity_id')
+                        ->join('activity_roles', 'activity_roles.id',
+                               'user_activity.activity_role_id')
+                        ->join('activity_types', 'activity_types.id',
+                               'activities.activity_type_id')
+                        ->where('user_id', '=', $user->id)
+                        ->where('activity_types.name', '=', 'Візит')
+                        ->orderBy('activities.end_date', 'DESC')
+                        ->paginate(10);
+
+       return view('home', [
+         'visits' => $visits,
+       ]);
     }
 
     public function event()
     {
-      return view('user_events');
+      $user = Auth::user();
+      $user_events = Activity::query()
+                               ->join('user_activity', 'activities.id',
+                                      'user_activity.activity_id')
+                               ->join('activity_roles', 'activity_roles.id',
+                                      'user_activity.activity_role_id')
+                               ->where('user_id', '=', $user->id)
+                               ->orderBy('activities.end_date', 'DESC')
+                               ->paginate(10);
+
+      $activity_info = Activity::query()
+                               ->join('user_activity', 'activities.id',
+                                     'user_activity.activity_id')
+                               ->where('user_id', '=', $user->id)
+                               ->orderBy('activities.end_date', 'DESC')
+                               ->select('activities.*')
+                               ->paginate(10);
+
+      return view('user_events', [
+        'user_events' => $user_events,
+        'activity_info' => $activity_info,
+      ]);
     }
 }

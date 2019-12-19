@@ -16,7 +16,6 @@
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
-            <th>#</th>
             <th>Дата і час візиту</th>
             <th>Час перебування</th>
             <th>Сума</th>
@@ -25,16 +24,19 @@
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @foreach($visits as $visit)
           <tr>
-            <td>1</td>
-            <td>17.12.2019 - 21:00</td>
-            <td>3 години</td>
-            <td>25 грн.</td>
-            <td>Головний</td>
-            <td>17</td>
+            <td>{{ date('d.m.Y H:i', strtotime($visit->start_date)) }}</td>
+            <td>{{ date('G', strtotime($visit->end_date) -
+                             strtotime($visit->start_date)) }} години
+            </td>
+            <td>{{ $visit->price *
+                    date('G', strtotime($visit->end_date) -
+                    strtotime($visit->start_date)) }} грн.</td>
+            <td>{{ $visit->hall->name }}</td>
+            <td>{{ $visit->place }}</td>
           </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>

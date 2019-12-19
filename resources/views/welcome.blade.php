@@ -12,19 +12,30 @@
       <span id="address-title">телефон:</span> {{ $club->phone }}<br/>
       <span id="address-title">Режим роботи:</span> {{ $club->schedule }}
       <span id="category">Анонси</span>
-      <a class="text-white" href="/event/1">
-        18.12.2019 з 10.00.
-        Турнір по <span id="game-name">CS GO</span>
-      </a><br />
-      <a class="text-white" href="/event/2">
-        25.12.2019 з 10.00.
-        Турнір по <span id="game-name">Dota 2</span>
-      </a><br />
+      @foreach($annonces as $annonce)
+        <div class="mb-2">
+          <a class="text-white" href="/event/1">
+            З {{ date('d.m.Y H:i', strtotime($annonce->start_date)) }}<br/>
+            по {{ date('d.m.Y H:i', strtotime($annonce->end_date)) }}
+            Відбудеться<br/>
+            {{ $annonce->activity_type->name }} по
+            <span id="game-name">{{ $annonce->game->name }}</span>
+          </a><br />
+        </div>
+      @endforeach
       <span id="category">Останні події</span>
-      <a class="text-white" href="/event/2">
-        25.11.2019 відбувся
-        Турнір по <span id="game-name">Dota 2</span>
-      </a><br />
+      @foreach($news as $new)
+        <div class="mb-2">
+          <a class="text-white" href="/event/1">
+            З {{ date('d.m.Y H:i', strtotime($new->start_date)) }}<br/>
+            по {{ date('d.m.Y H:i', strtotime($new->end_date)) }}
+            Відбувся<br/>
+            {{ $new->activity_type->name }} по
+            <span id="game-name">{{ $new->game->name }}</span>
+          </a><br />
+        </div>
+      @endforeach
+      <a class="text-white" href="/event">Та інші...</a><br />
       <span id="category">Ігри</span>
       <div class="text-white">
         @foreach($games as $game)
