@@ -26,7 +26,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $user = Auth::user();
+      $visits = Activity::query()
+                        ->join('user_activity', 'activities.id',
+                               'user_activity.activity_id')
+                        ->join('activity_roles', 'activity_roles.id',
+                               'user_activity.activity_role_id')
+                        ->join('activity_types', 'activity_types.id',
+                               'activities.activity_type_id')
+                        ->where('user_id', '=', $user->id)
+                        ->where('activity_types.name', '=', 'Візит')
+                        ->orderBy('activities.end_date', 'DESC')
+                        ->paginate(10);
+
+       return view('home', [
+         'visits' => $visits,
+       ]);
     }
 
     public function event()
