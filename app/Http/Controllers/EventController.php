@@ -10,6 +10,8 @@ class EventController extends Controller
     public function index()
     {
       $events = Activity::query()
+                          ->whereNotNull('game_id')
+                          ->whereNotNull('end_date')
                           ->orderBy('end_date', 'DESC')
                           ->paginate(10);
 
