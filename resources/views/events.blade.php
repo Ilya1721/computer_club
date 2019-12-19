@@ -57,29 +57,28 @@
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Назва івенту</th>
             <th>Дата і час початку івенту</th>
             <th>Дата і час кінця івенту</th>
-            <th>Назва івенту</th>
             <th>Ціна</th>
             <th>Зал</th>
           </tr>
         </thead>
         <tbody>
-          @for($i = 0; $i < 5; $i++)
+          @foreach($events as $event)
           <tr>
-            <td>1</td>
-            <td>17.12.2019 - 21:00</td>
-            <td>17.12.2019 - 24:00</td>
             <td>
-              <a href="/event/1" class="yellow-link">
-                Турнір по <span id="game-name">СS GO</span>
+              <a href="/event/1" class="text-white">
+                {{ $event->activity_type->name }} по
+                <span id="game-name">{{ $event->game->name }}</span>
               </a>
             </td>
-            <td>25 грн.</td>
-            <td>Головний</td>
+            <td>{{ date('d.m.Y H:i', strtotime($event->start_date)) }}</td>
+            <td>{{ date('d.m.Y H:i', strtotime($event->end_date)) }}</td>
+            <td>{{ $event->price }} грн.</td>
+            <td>{{ $event->hall->name }}</td>
           </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>
