@@ -15,11 +15,13 @@ class WelcomeController extends Controller
       $games = Game::all()->take(10);
       $platforms = Platform::all();
       $annonces = Activity::all();
+      $news = Activity::all();
 
       return view('welcome', [
         'games' => $games,
         'platforms' => $platforms,
         'annonces' => $annonces,
+        'news' => $news,
       ]);
     }
 }
