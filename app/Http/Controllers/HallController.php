@@ -26,6 +26,18 @@ class HallController extends Controller
       ]);
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'club_id' => '',
+      ]);
+
+      Hall::updateOrCreate($data);
+
+      return redirect('/admin/halls');
+    }
+
     public function edit(Hall $hall)
     {
       $clubs = Club::all();
