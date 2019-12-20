@@ -23,3 +23,10 @@
 <a href="/visit/create" class="yellow-link big-link">
   Забронювати місце
 </a><br />
+@auth()
+@if(Auth::user()->role_id == 1)
+<a href="/admin" class="yellow-link big-link">
+  Адмінка
+</a><br />
+@endif
+@endauth
