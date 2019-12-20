@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hall;
+use App\Club;
 
 class HallController extends Controller
 {
@@ -13,6 +14,16 @@ class HallController extends Controller
 
       return view('halls', [
         'halls' => $halls,
+      ]);
+    }
+
+    public function edit(Hall $hall)
+    {
+      $clubs = Club::all();
+
+      return view('edit_hall', [
+        'hall' => $hall,
+        'clubs' => $clubs,
       ]);
     }
 }
