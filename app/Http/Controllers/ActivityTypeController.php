@@ -22,4 +22,15 @@ class ActivityTypeController extends Controller
         'activity_type' => $activity_type,
       ]);
     }
+
+    public function update(ActivityType $activity_type)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+      ]);
+
+      $activity_type->update($data);
+
+      return redirect('/admin/activity-types');
+    }
 }
