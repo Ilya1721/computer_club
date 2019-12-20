@@ -17,6 +17,11 @@ class ClubController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      return view('create_club');
+    }
+
     public function edit(Club $club)
     {
       return view('edit_club', [
