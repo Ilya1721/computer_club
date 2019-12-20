@@ -8,6 +8,14 @@
     </div>
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Режим роботи</h1>
+      @auth()
+      @if(Auth::user()->role_id == 1)
+      <a href="/admin/platforms/create"
+         class="btn btn-block w-100 mb-3 btn-warning">
+        Змінити режим роботи
+      </a>
+      @endif
+      @endauth
       <p class="text-white text-big">Клуб працює {{ $club->schedule }}</p>
     </div>
     <div class="col-1"></div>
