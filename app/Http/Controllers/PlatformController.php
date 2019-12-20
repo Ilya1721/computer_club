@@ -74,4 +74,11 @@ class PlatformController extends Controller
 
       return redirect('/admin/platforms');
     }
+
+    public function destroy(Platform $platform)
+    {
+      $platform->delete();
+
+      return redirect('/admin/platforms');
+    }
 }

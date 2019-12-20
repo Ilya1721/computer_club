@@ -42,7 +42,7 @@
                 <a href="/admin/platforms/{{ $platform->id }}/edit" class="btn btn-warning mr-3">
                   Edit
                 </a>
-                <form method="post" action="/admin/platform/{{ $platform->id }}">
+                <form method="post" action="/admin/platforms/{{ $platform->id }}">
                   @csrf
                   @method('delete')
                   <input type="submit" value="Delete" class="btn btn-danger" />
