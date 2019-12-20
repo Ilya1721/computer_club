@@ -49,4 +49,11 @@ class ActivityTypeController extends Controller
 
       return redirect('/admin/activity-types');
     }
+
+    public function destroy(ActivityType $activity_type)
+    {
+      $activity_type->delete();
+
+      return redirect('/admin/activity-types');
+    }
 }
