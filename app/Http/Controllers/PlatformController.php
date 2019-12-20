@@ -15,4 +15,11 @@ class PlatformController extends Controller
         'platforms' => $platforms,
       ]);
     }
+
+    public function edit(Platform $platform)
+    {
+      return view('edit_platform', [
+        'platform' => $platform,
+      ]);
+    }
 }

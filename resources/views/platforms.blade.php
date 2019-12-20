@@ -39,7 +39,7 @@
             @if(Auth::user()->role_id == 1)
             <td>
               <div class="d-flex">
-                <a href="/admin/platform/edit" class="btn btn-warning mr-3">
+                <a href="/admin/platforms/{{ $platform->id }}/edit" class="btn btn-warning mr-3">
                   Edit
                 </a>
                 <form method="post" action="/admin/platform/{{ $platform->id }}">
