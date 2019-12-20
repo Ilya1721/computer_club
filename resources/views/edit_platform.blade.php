@@ -9,7 +9,7 @@
 
         <div class="card-body">
           <form method="POST" enctype="multipart/form-data"
-                action="/admin/platform/{{ $platform->id }}">
+                action="/admin/platforms/{{ $platform->id }}">
             @csrf
             @method('patch')
 
@@ -21,7 +21,7 @@
               <div class="col-md-6">
                 <input id="name" type="text"
                  class="form-control @error('name') is-invalid @enderror"
-                 name="name" value="{{ old('name') }}"
+                 name="name" value="{{ old('name') ?? $platform->name }}"
                  required autocomplete="name" autofocus>
 
                 @error('name')
