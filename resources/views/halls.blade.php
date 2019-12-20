@@ -7,50 +7,45 @@
       @yield('home-left-links', View::make('layouts.home-left-links'))
     </div>
     <div class="col-8 pl-0">
-      <h1 class="text-yellow">Усі платформи</h1>
+      <h1 class="text-yellow">Усі Зали</h1>
       @auth()
       @if(Auth::user()->role_id == 1)
-      <a href="/admin/platforms/create"
+      <a href="/admin/halls/create"
          class="btn btn-block w-25 mb-3 btn-warning">
-        Додати платформу
+        Додати зал
       </a>
       @endif
       @endauth
-      <table class="table text-left table-dark text-yellow" id="visits">
+      <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Фото</th>
             <th>Назва</th>
-            @auth()
-            @if(Auth::user()->role_id == 1)
+            <th>Клуб</th>
             <th></th>
-            @endif
-            @endauth
           </tr>
         </thead>
         <tbody>
-          @foreach($platforms as $platform)
+          @foreach($halls as $hall)
           <tr>
-            <td>{{ $platform->id }}</td>
-            <td><img class="game-image" src="{{ $platform->image }}"></td>
-            <td>{{ $platform->name }}</td>
-            @auth()
-            @if(Auth::user()->role_id == 1)
+            <td>{{ $hall->name }}</td>
+            <td>
+              <a href="/admin/clubs/{{ $hall->club->id }}" class="yellow-link">
+                {{ $hall->club->name }}
+              </a>
+            </td>
             <td>
               <div class="d-flex">
-                <a href="/admin/platforms/{{ $platform->id }}/edit" class="btn btn-warning mr-3">
+                <a href="/admin/halls/{{ $hall->id }}/edit"
+                   class="btn btn-warning mr-3">
                   Edit
                 </a>
-                <form method="post" action="/admin/platforms/{{ $platform->id }}">
+                <form method="post" action="/admin/halls/{{ $hall->id }}">
                   @csrf
                   @method('delete')
                   <input type="submit" value="Delete" class="btn btn-danger" />
                 </form>
               </div>
             </td>
-            @endif
-            @endauth
           </tr>
           @endforeach
         </tbody>
@@ -60,7 +55,7 @@
   </div>
   <div class="row mt-3">
     <div class="col-12 d-flex justify-content-center">
-      {{ $platforms->links() }}
+      {{ $halls->links() }}
     </div>
   </div>
 </div>

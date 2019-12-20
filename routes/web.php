@@ -23,3 +23,12 @@ Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');
 Route::get('/schedule', 'ScheduleController@index');
+Route::get('/admin/clubs/{id}/schedule/edit', 'ClubController@edit_schedule');
+Route::patch('/admin/clubs/{id}/schedule', 'ClubController@update_schedule');
+Route::get('/admin/clubs/{id}/price/edit', 'ClubController@edit_price');
+Route::patch('/admin/clubs/{id}/price', 'ClubController@update_price');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

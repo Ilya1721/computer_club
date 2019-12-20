@@ -18,6 +18,10 @@ main {
   margin-bottom: 12rem;
 }
 
+.text-underline {
+  text-decoration: underline;
+}
+
 .tournament-image {
   width: 200px;
   height: 200px;
