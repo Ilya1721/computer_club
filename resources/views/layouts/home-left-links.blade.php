@@ -29,21 +29,14 @@
 <a href="/admin" class="yellow-link big-link">
   Адмінка
 </a><br />
-@endif
-@endauth
-
-@auth()
-@if(Auth::user()->role_id == 1)
 <a href="/admin/clubs" class="yellow-link big-link">
   Клуби
 </a><br />
-@endif
-@endauth
-
-@auth()
-@if(Auth::user()->role_id == 1)
 <a href="/admin/clubs/{{ $club->id }}" class="yellow-link big-link">
   Наш клуб
+</a><br />
+<a href="/admin/halls" class="yellow-link big-link">
+  Зали
 </a><br />
 @endif
 @endauth
