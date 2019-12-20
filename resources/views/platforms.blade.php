@@ -8,17 +8,25 @@
     </div>
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Усі платформи</h1>
-      <div class="row justify-content-center mb-3">
-        <a href="#" class="btn btn-block btn-warning w-50" role="button">
-          Анонси
-        </a>
-      </div>
+      @auth()
+      @if(Auth::user()->role_id == 1)
+      <a href="/admin/platform/create"
+         class="btn btn-block w-25 mb-3 btn-warning">
+        Додати платформу
+      </a>
+      @endif
+      @endauth
       <table class="table text-left table-dark text-yellow" id="visits">
         <thead>
           <tr>
             <th>#</th>
             <th>Фото</th>
             <th>Назва</th>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <th></th>
+            @endif
+            @endauth
           </tr>
         </thead>
         <tbody>
@@ -27,6 +35,22 @@
             <td>{{ $platform->id }}</td>
             <td><img class="game-image" src="{{ $platform->image }}"></td>
             <td>{{ $platform->name }}</td>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <td>
+              <div class="d-flex">
+                <a href="/admin/platform/edit" class="btn btn-warning mr-3">
+                  Edit
+                </a>
+                <form method="post" action="/admin/platform/{{ $platform->id }}">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+              </div>
+            </td>
+            @endif
+            @endauth
           </tr>
           @endforeach
         </tbody>
