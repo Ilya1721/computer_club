@@ -22,6 +22,29 @@ class PlatformController extends Controller
       return view('create_platform');
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'image' => 'required',
+      ]);
+
+      if(request('image'))
+      {
+        $imagePath = request('image')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(150, 150);
+        $image->save();
+        $imageArray = ['image' => '/storage/'.$imagePath];
+      }
+
+      Platform::updateOrCreate(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/platforms');
+    }
+
     public function edit(Platform $platform)
     {
       return view('edit_platform', [
