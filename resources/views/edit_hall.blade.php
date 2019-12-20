@@ -61,7 +61,7 @@
                 <button type="submit" class="btn btn-primary">
                   {{ __('Submit') }}
                 </button>
-                <a href="/schedule" class="btn btn-danger" role="button">
+                <a href="/admin/halls" class="btn btn-danger" role="button">
                   Cancel
                 </a>
               </div>

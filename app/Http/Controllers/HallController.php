@@ -26,4 +26,16 @@ class HallController extends Controller
         'clubs' => $clubs,
       ]);
     }
+
+    public function update(Hall $hall)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'club_id' => 'required',
+      ]);
+
+      $hall->update($data);
+
+      return redirect('/admin/halls');
+    }
 }
