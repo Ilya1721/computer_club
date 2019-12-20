@@ -82,4 +82,11 @@ class ClubController extends Controller
 
       return redirect('/admin/clubs');
     }
+
+    public function destroy(Club $club)
+    {
+      $club->delete();
+
+      return redirect('/admin/clubs');
+    }
 }
