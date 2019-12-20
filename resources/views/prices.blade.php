@@ -8,6 +8,14 @@
     </div>
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Ціни</h1>
+      @auth()
+      @if(Auth::user()->role_id == 1)
+      <a href="/admin/clubs/{{ $club->id }}/price/edit"
+         class="btn btn-block w-100 mb-3 btn-warning">
+        Змінити прайс ліст
+      </a>
+      @endif
+      @endauth
       <img src="{{ $club->price_list }}" />
     </div>
     <div class="col-1"></div>

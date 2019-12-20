@@ -46,6 +46,32 @@ class ClubController extends Controller
       return redirect('/schedule');
     }
 
+    public function edit_price($club)
+    {
+      $club = Club::find($club);
+
+      return view('edit_price', [
+        'club' => $club,
+      ]);
+    }
+
+    public function update_price($club)
+    {
+      $club = Club::find($club);
+
+      if(request('price_list'))
+      {
+        $imagePath = request('price_list')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"));
+        $image->save();
+        $imageArray = ['price_list' => '/storage/'.$imagePath];
+      }
+
+      $club->update($imageArray ?? []);
+
+      return redirect('/price');
+    }
+
     public function create()
     {
       return view('create_club');
