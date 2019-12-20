@@ -21,6 +21,17 @@ class GenreController extends Controller
       return view('create_genre');
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+      ]);
+
+      Genre::updateOrCreate($data);
+
+      return redirect('/admin/genres');
+    }
+
     public function edit(Genre $genre)
     {
       return view('edit_genre', [
