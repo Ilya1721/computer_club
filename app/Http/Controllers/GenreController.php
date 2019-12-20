@@ -16,6 +16,11 @@ class GenreController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      return view('create_genre');
+    }
+
     public function edit(Genre $genre)
     {
       return view('edit_genre', [
