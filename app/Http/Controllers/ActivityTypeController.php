@@ -16,6 +16,11 @@ class ActivityTypeController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      return view('create_activity_type');
+    }
+
     public function edit(ActivityType $activity_type)
     {
       return view('edit_activity_type', [
