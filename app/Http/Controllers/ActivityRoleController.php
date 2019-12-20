@@ -16,6 +16,11 @@ class ActivityRoleController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      return view('create_activity_role');
+    }
+
     public function edit(ActivityRole $activity_role)
     {
       return view('edit_activity_role', [
