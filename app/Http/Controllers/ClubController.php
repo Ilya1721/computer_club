@@ -24,6 +24,28 @@ class ClubController extends Controller
       ]);
     }
 
+    public function edit_schedule($club)
+    {
+      $club = Club::find($club);
+
+      return view('edit_schedule', [
+        'club' => $club,
+      ]);
+    }
+
+    public function update_schedule($club)
+    {
+      $data = request()->validate([
+        'schedule' => 'required',
+      ]);
+
+      $club = Club::find($club);
+
+      $club->update($data);
+
+      return redirect('/schedule');
+    }
+
     public function create()
     {
       return view('create_club');

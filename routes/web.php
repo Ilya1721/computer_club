@@ -23,7 +23,8 @@ Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');
 Route::get('/schedule', 'ScheduleController@index');
-Route::get('/admin/clubS/{id}/schedule/edit', 'ClubController@edit_schedule');
+Route::get('/admin/clubs/{id}/schedule/edit', 'ClubController@edit_schedule');
+Route::patch('/admin/clubs/{id}/schedule', 'ClubController@update_schedule');
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -10,7 +10,7 @@
       <h1 class="text-yellow">Режим роботи</h1>
       @auth()
       @if(Auth::user()->role_id == 1)
-      <a href="/admin/сlubs/{{ $club->id }}/schedule/edit"
+      <a href="/admin/clubs/{{ $club->id }}/schedule/edit"
          class="btn btn-block w-100 mb-3 btn-warning">
         Змінити режим роботи
       </a>
