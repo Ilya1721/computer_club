@@ -49,4 +49,11 @@ class ActivityRoleController extends Controller
 
       return redirect('/admin/activity-roles');
     }
+
+    public function destroy(ActivityRole $activity_role)
+    {
+      $activity_role->delete();
+
+      return redirect('/admin/activity-roles');
+    }
 }
