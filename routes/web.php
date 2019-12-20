@@ -23,3 +23,8 @@ Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');
 Route::get('/schedule', 'ScheduleController@index');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
