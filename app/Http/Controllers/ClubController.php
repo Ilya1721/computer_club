@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use App\Club;
 
 class ClubController extends Controller
@@ -21,5 +22,32 @@ class ClubController extends Controller
       return view('edit_club', [
         'club' => $club,
       ]);
+    }
+
+    public function update(Club $club)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'street' => 'required',
+        'house' => 'required',
+        'flat' => 'required',
+        'phone' => 'required',
+        'schedule' => 'required',
+      ]);
+
+      if(request('price_list'))
+      {
+        $imagePath = request('price_list')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"));
+        $image->save();
+        $imageArray = ['price_list' => '/storage/'.$imagePath];
+      }
+
+      $club->update(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/clubs');
     }
 }

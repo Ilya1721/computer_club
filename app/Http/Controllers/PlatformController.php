@@ -32,7 +32,7 @@ class PlatformController extends Controller
       if(request('image'))
       {
         $imagePath = request('image')->store('img', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(150, 150);
+        $image = Image::make(public_path("storage/{$imagePath}"));
         $image->save();
         $imageArray = ['image' => '/storage/'.$imagePath];
       }
