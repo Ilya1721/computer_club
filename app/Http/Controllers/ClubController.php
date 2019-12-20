@@ -22,6 +22,33 @@ class ClubController extends Controller
       return view('create_club');
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'street' => 'required',
+        'house' => 'required',
+        'flat' => 'required',
+        'phone' => 'required',
+        'schedule' => 'required',
+      ]);
+
+      if(request('price_list'))
+      {
+        $imagePath = request('price_list')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"));
+        $image->save();
+        $imageArray = ['price_list' => '/storage/'.$imagePath];
+      }
+
+      Club::updateOrCreate(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/clubs');
+    }
+
     public function edit(Club $club)
     {
       return view('edit_club', [
