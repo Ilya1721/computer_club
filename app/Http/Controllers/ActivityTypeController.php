@@ -21,6 +21,17 @@ class ActivityTypeController extends Controller
       return view('create_activity_type');
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+      ]);
+
+      ActivityType::updateOrCreate($data);
+
+      return redirect('/admin/activity-types');
+    }
+
     public function edit(ActivityType $activity_type)
     {
       return view('edit_activity_type', [
