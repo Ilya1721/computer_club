@@ -39,5 +39,11 @@
 <a href="/admin/halls" class="yellow-link big-link">
   Зали
 </a><br />
+<a href="/admin/genres" class="yellow-link big-link">
+  Жанри
+</a><br />
+<a href="/admin/activity-types" class="yellow-link big-link">
+  Типи івентів
+</a><br />
 @endif
 @endauth
