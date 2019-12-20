@@ -59,4 +59,11 @@ class HallController extends Controller
 
       return redirect('/admin/halls');
     }
+
+    public function destroy(Hall $hall)
+    {
+      $hall->delete();
+
+      return redirect('/admin/halls');
+    }
 }
