@@ -21,6 +21,17 @@ class ActivityRoleController extends Controller
       return view('create_activity_role');
     }
 
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+      ]);
+
+      ActivityRole::updateOrCreate($data);
+
+      return redirect('/admin/activity-roles');
+    }
+
     public function edit(ActivityRole $activity_role)
     {
       return view('edit_activity_role', [
