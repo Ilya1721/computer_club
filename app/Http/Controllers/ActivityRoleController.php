@@ -22,4 +22,15 @@ class ActivityRoleController extends Controller
         'activity_role' => $activity_role,
       ]);
     }
+
+    public function update(ActivityRole $activity_role)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+      ]);
+
+      $activity_role->update($data);
+
+      return redirect('/admin/activity-roles');
+    }
 }
