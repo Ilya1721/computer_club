@@ -42,7 +42,7 @@
 
 @auth()
 @if(Auth::user()->role_id == 1)
-<a href="/admin/club/{{ $club->id }}" class="yellow-link big-link">
+<a href="/admin/clubs/{{ $club->id }}" class="yellow-link big-link">
   Наш клуб
 </a><br />
 @endif

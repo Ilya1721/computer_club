@@ -17,6 +17,13 @@ class ClubController extends Controller
       ]);
     }
 
+    public function show(Club $club)
+    {
+      return view('club', [
+        'club' => $club,
+      ]);
+    }
+
     public function create()
     {
       return view('create_club');
