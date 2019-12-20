@@ -17,6 +17,11 @@ class PlatformController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      return view('create_platform');
+    }
+
     public function edit(Platform $platform)
     {
       return view('edit_platform', [

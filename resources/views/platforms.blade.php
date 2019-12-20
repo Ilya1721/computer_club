@@ -10,7 +10,7 @@
       <h1 class="text-yellow">Усі платформи</h1>
       @auth()
       @if(Auth::user()->role_id == 1)
-      <a href="/admin/platform/create"
+      <a href="/admin/platforms/create"
          class="btn btn-block w-25 mb-3 btn-warning">
         Додати платформу
       </a>
