@@ -26,6 +26,7 @@
 
 @auth()
 @if(Auth::user()->role_id == 1)
+<div class="my-2 text-big text-underline">Admin Area</div>
 <a href="/admin" class="yellow-link big-link">
   Адмінка
 </a><br />
