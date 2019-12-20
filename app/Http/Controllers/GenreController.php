@@ -49,4 +49,11 @@ class GenreController extends Controller
 
       return redirect('/admin/genres');
     }
+
+    public function destroy(Genre $genre)
+    {
+      $genre->delete();
+
+      return redirect('/admin/genres');
+    }
 }
