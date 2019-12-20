@@ -17,6 +17,15 @@ class HallController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      $clubs = Club::all();
+
+      return view('create_hall', [
+        'clubs' => $clubs,
+      ]);
+    }
+
     public function edit(Hall $hall)
     {
       $clubs = Club::all();
