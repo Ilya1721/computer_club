@@ -39,5 +39,8 @@
 <a href="/admin/halls" class="yellow-link big-link">
   Зали
 </a><br />
+<a href="/admin/genres" class="yellow-link big-link">
+  Жанри
+</a><br />
 @endif
 @endauth
