@@ -9,11 +9,6 @@
     <div class="col-8 px-0">
       <h1 class="text-yellow">Усі івенти</h1>
       <div class="row justify-content-center mb-3">
-        <a href="#" class="btn btn-block btn-warning w-50" role="button">
-          Анонси
-        </a>
-      </div>
-      <div class="row justify-content-center mb-3">
         <form action="/activity/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
