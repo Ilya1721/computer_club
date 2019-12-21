@@ -18,8 +18,46 @@ class ActivityController extends Controller
                           ->orderBy('end_date', 'DESC')
                           ->paginate(10);
 
+      $activity_types = ActivityType::all();
+
       return view('activities', [
         'activities' => $activities,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
+    public function filter()
+    {
+      $data = request()->validate([
+        'category' => '',
+      ]);
+
+      if($data['category'] != 'all')
+      {
+        $activities = Activity::query()
+                          ->join('activity_types', 'activity_types.id', '=',
+                                 'activities.activity_type_id')
+                          ->where('activities.activity_type_id', '=',
+                                  $data['category'])
+                          ->whereNotNull('game_id')
+                          ->whereNotNull('end_date')
+                          ->orderBy('end_date', 'DESC')
+                          ->paginate(10);
+      }
+      else
+      {
+        $activities = Activity::query()
+                            ->whereNotNull('game_id')
+                            ->whereNotNull('end_date')
+                            ->orderBy('end_date', 'DESC')
+                            ->paginate(10);
+      }
+
+      $activity_types = ActivityType::all();
+
+      return view('activities', [
+        'activities' => $activities,
+        'activity_types' => $activity_types,
       ]);
     }
 

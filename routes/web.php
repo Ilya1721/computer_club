@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/activity', 'HomeController@event');
 Route::get('/activity', 'ActivityController@index');
+Route::post('/activity/filter', 'ActivityController@filter');
 Route::get('/activity/{id}', 'ActivityController@show');
 Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');

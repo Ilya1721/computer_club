@@ -14,16 +14,15 @@
         </a>
       </div>
       <div class="row justify-content-center mb-3">
-        <form action="/game/filter" method="post" class="form-inline mr-3">
+        <form action="/activity/filter" method="POST" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">
-                Турнір
+              @foreach($activity_types as $activity_type)
+              <option value="{{ $activity_type->id }}">
+                {{ $activity_type->name }}
               </option>
-              <option value="2">
-                Виставка
-              </option>
+              @endforeach
               <option value="all">
                 Усі івенти
               </option>
@@ -35,12 +34,12 @@
             </div>
           </div>
         </form>
-        <form action="/game/search" method="post"
+        <form action="/activity/search" method="GET"
          class="form-inline w-50 mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">Назва</option>
+              <option value="games.name">Назва гри</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"
