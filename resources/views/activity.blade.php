@@ -8,11 +8,13 @@
     </div>
     <div class="col-8 px-0">
       <h1 class="text-yellow">
-        Турнір по <span id="game-name">CS GO</span>
+        Турнір по <span id="game-name">{{ $activity->game->name }}</span>
       </h1>
-      @if(date('G', strtotime(date('Y-m-d H:i:s')) -
-                    strtotime($activity->start_date))
-          > 0)
+      @php(
+        date_default_timezone_set('Europe/Kiev')
+      )
+      @if(strtotime($activity->end_date) -
+          strtotime(date('Y-m-d H:i:s')) > 0)
       <div class="row justify-content-center mb-3">
         <a href="/activity/{{ $activity->id }}/register"
            class="btn btn-block btn-warning w-50" role="button">

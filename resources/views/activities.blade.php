@@ -75,7 +75,7 @@
           @foreach($activities as $activity)
           <tr>
             <td>
-              <a href="/activity/1" class="text-white">
+              <a href="/activity/{{ $activity->id }}" class="text-white">
                 {{ $activity->activity_type->name }} по
                 <span id="game-name">{{ $activity->game->name }}</span>
               </a>
