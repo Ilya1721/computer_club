@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/activity', 'HomeController@activity');
+Route::get('/user/activity/filter', 'HomeController@filter');
+Route::get('/user/activity/search', 'HomeController@search');
 Route::get('/activity', 'ActivityController@index');
 Route::get('/activity/filter', 'ActivityController@filter');
 Route::get('/activity/search', 'ActivityController@search');
