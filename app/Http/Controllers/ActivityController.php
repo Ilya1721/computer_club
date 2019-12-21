@@ -40,4 +40,23 @@ class ActivityController extends Controller
         'games' => $games,
       ]);
     }
+
+    public function update(Activity $activity)
+    {
+      $data = request()->validate([
+        'activity_type_id' => 'required',
+        'game_id' => 'required',
+        'description' => 'required',
+        'price' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
+      ]);
+
+      $data['start_date'] = date('Y-m-d H:i:s', strtotime($data['start_date']));
+      $data['end_date'] = date('Y-m-d H:i:s', strtotime($data['end_date']));
+
+      $activity->update($data);
+
+      return redirect('/admin/activities');
+    }
 }

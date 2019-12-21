@@ -8,7 +8,7 @@
         <div class="card-header">{{ __('Редагувати івент') }}</div>
 
         <div class="card-body">
-          <form method="POST" enctype="multipart/form-data"
+          <form method="POST"
                 action="/admin/activities/{{ $activity->id }}">
             @csrf
             @method('patch')
@@ -107,7 +107,9 @@
               </label>
               <div class="col-md-6">
                   <input id="start_date" name="start_date"
-                   type="datetime-local" class="form-control" />
+                   type="datetime"
+                   value="{{ date('d.m.Y H:i', strtotime($activity->start_date)) }}"
+                   class="form-control" />
                   @error('start_date')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -122,7 +124,9 @@
               </label>
               <div class="col-md-6">
                   <input id="end_date" name="end_date"
-                   type="datetime-local" class="form-control" />
+                   type="datetime"
+                   value="{{ date('d.m.Y H:i', strtotime($activity->end_date)) }}"
+                   class="form-control" />
                   @error('end_date')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
