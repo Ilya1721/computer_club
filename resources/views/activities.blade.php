@@ -56,7 +56,7 @@
       </div>
       @auth()
       @if(Auth::user()->role_id == 1)
-      <a href="/admin/genres/create"
+      <a href="/admin/activities/create"
          class="btn btn-block w-25 mb-3 btn-warning">
         Додати івент
       </a>
