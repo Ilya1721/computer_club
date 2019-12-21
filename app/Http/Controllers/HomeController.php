@@ -114,6 +114,51 @@ class HomeController extends Controller
       ]);
     }
 
+    public function search()
+    {
+      $data = request()->validate([
+        'category' => '',
+        'search' => '',
+      ]);
+
+      $user = Auth::user();
+
+      $user_activities = Activity::query()
+                          ->join('user_activity', 'activities.id',
+                                 'user_activity.activity_id')
+                          ->join('activity_roles', 'activity_roles.id',
+                                 'user_activity.activity_role_id')
+                          ->join('games', 'games.id',
+                                 'activities.game_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where($data['category'], 'LIKE',
+                             '%'.$data['search'].'%')
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+      $activity_info = Activity::query()
+                          ->join('user_activity', 'activities.id',
+                               'user_activity.activity_id')
+                          ->join('games', 'games.id',
+                                 'activities.game_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where('user_id', '=', $user->id)
+                          ->where($data['category'], 'LIKE',
+                             '%'.$data['search'].'%')
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+      $activity_types = ActivityType::all();
+
+      return view('user_activities', [
+        'user_activities' => $user_activities,
+        'activity_info' => $activity_info,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
     public function activity()
     {
       $user = Auth::user();
