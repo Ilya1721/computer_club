@@ -22,17 +22,6 @@
         на справжню кіберолімпіаду WCG 2012. Відбіркові
         ігри на лані пройдуть в нашому клубі 27-28 жовтня.
       </p>
-      <div class="row">
-        <div class="col">
-          <img class="tournament-image" src="/storage/img/tournament.jpg" />
-        </div>
-        <div class="col">
-          <img class="tournament-image" src="/storage/img/tournament2.jfif" />
-        </div class="col">
-        <div class="col">
-          <img class="tournament-image" src="/storage/img/tournament3.jfif" />
-        </div>
-      </div>
     </div>
     <div class="col-1"></div>
   </div>

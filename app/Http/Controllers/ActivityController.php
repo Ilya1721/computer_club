@@ -5,25 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Activity;
 
-class EventController extends Controller
+class ActivityController extends Controller
 {
     public function index()
     {
-      $events = Activity::query()
+      $activities = Activity::query()
                           ->whereNotNull('game_id')
                           ->whereNotNull('end_date')
                           ->orderBy('end_date', 'DESC')
                           ->paginate(10);
 
-      return view('events', [
-        'events' => $events,
+      return view('activities', [
+        'activities' => $activities,
       ]);
     }
 
-    public function show($event)
+    public function show($activity)
     {
-      return view('event', [
-        'event' => $event,
+      return view('activity', [
+        'activity' => $activity,
       ]);
     }
 }

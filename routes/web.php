@@ -17,8 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/activity', 'HomeController@event');
-Route::get('/activity', 'EventController@index');
-Route::get('/activity/{id}', 'EventController@show');
+Route::get('/activity', 'ActivityController@index');
+Route::get('/activity/{id}', 'ActivityController@show');
 Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');

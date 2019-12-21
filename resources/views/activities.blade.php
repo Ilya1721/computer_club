@@ -78,26 +78,26 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($events as $event)
+          @foreach($activities as $activity)
           <tr>
             <td>
-              <a href="/event/1" class="text-white">
-                {{ $event->activity_type->name }} по
-                <span id="game-name">{{ $event->game->name }}</span>
+              <a href="/activity/1" class="text-white">
+                {{ $activity->activity_type->name }} по
+                <span id="game-name">{{ $activity->game->name }}</span>
               </a>
             </td>
-            <td>{{ date('d.m.Y H:i', strtotime($event->start_date)) }}</td>
-            <td>{{ date('d.m.Y H:i', strtotime($event->end_date)) }}</td>
-            <td>{{ $event->price }} грн.</td>
-            <td>{{ $event->hall->name }}</td>
+            <td>{{ date('d.m.Y H:i', strtotime($activity->start_date)) }}</td>
+            <td>{{ date('d.m.Y H:i', strtotime($activity->end_date)) }}</td>
+            <td>{{ $activity->price }} грн.</td>
+            <td>{{ $activity->hall->name }}</td>
             @auth()
             @if(Auth::user()->role_id == 1)
             <td>
               <div class="d-flex">
-                <a href="/admin/activities/{{ $event->id }}/edit" class="btn btn-warning mr-3">
+                <a href="/admin/activities/{{ $activity->id }}/edit" class="btn btn-warning mr-3">
                   Edit
                 </a>
-                <form method="post" action="/admin/activities/{{ $event->id }}">
+                <form method="post" action="/admin/activities/{{ $activity->id }}">
                   @csrf
                   @method('delete')
                   <input type="submit" value="Delete" class="btn btn-danger" />
@@ -115,7 +115,7 @@
   </div>
   <div class="row mt-3">
     <div class="col-12 d-flex justify-content-center">
-      {{ $events->links() }}
+      {{ $activities->links() }}
     </div>
   </div>
 </div>
