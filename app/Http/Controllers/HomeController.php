@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Activity;
 use App\ActivityType;
+use App\ActivityRole;
 
 class HomeController extends Controller
 {
@@ -45,6 +46,120 @@ class HomeController extends Controller
        ]);
     }
 
+    public function filter()
+    {
+      $data = request()->validate([
+        'category' => '',
+      ]);
+
+      $user = Auth::user();
+
+      if($data['category'] != 'all')
+      {
+        $user_activities = Activity::query()
+                          ->join('activity_types', 'activity_types.id', '=',
+                                 'activities.activity_type_id')
+                          ->join('user_activity', 'activities.id',
+                                'user_activity.activity_id')
+                          ->join('activity_roles', 'activity_roles.id',
+                                'user_activity.activity_role_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where('user_id', '=', $user->id)
+                          ->where('activities.activity_type_id', '=',
+                                  $data['category'])
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+        $activity_info = Activity::query()
+                                 ->join('user_activity', 'activities.id',
+                                       'user_activity.activity_id')
+                                 ->join('activity_types', 'activity_types.id', '=',
+                                        'activities.activity_type_id')
+                                 ->whereNotNull('activities.game_id')
+                                 ->whereNotNull('activities.end_date')
+                                 ->where('user_id', '=', $user->id)
+                                 ->where('activities.activity_type_id', '=',
+                                         $data['category'])
+                                 ->orderBy('activities.end_date', 'DESC')
+                                 ->paginate(10);
+      }
+      else
+      {
+        $user_activities = Activity::query()
+                            ->join('user_activity', 'activities.id',
+                                   'user_activity.activity_id')
+                            ->join('activity_roles', 'activity_roles.id',
+                                   'user_activity.activity_role_id')
+                            ->whereNotNull('activities.game_id')
+                            ->whereNotNull('activities.end_date')
+                            ->orderBy('activities.end_date', 'DESC')
+                            ->paginate(10);
+
+        $activity_info = Activity::query()
+                            ->join('user_activity', 'activities.id',
+                                 'user_activity.activity_id')
+                            ->whereNotNull('activities.game_id')
+                            ->whereNotNull('activities.end_date')
+                            ->where('user_id', '=', $user->id)
+                            ->orderBy('activities.end_date', 'DESC')
+                            ->paginate(10);
+      }
+
+      $activity_types = ActivityType::all();
+
+      return view('user_activities', [
+        'user_activities' => $user_activities,
+        'activity_info' => $activity_info,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
+    public function search()
+    {
+      $data = request()->validate([
+        'category' => '',
+        'search' => '',
+      ]);
+
+      $user = Auth::user();
+
+      $user_activities = Activity::query()
+                          ->join('user_activity', 'activities.id',
+                                 'user_activity.activity_id')
+                          ->join('activity_roles', 'activity_roles.id',
+                                 'user_activity.activity_role_id')
+                          ->join('games', 'games.id',
+                                 'activities.game_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where($data['category'], 'LIKE',
+                             '%'.$data['search'].'%')
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+      $activity_info = Activity::query()
+                          ->join('user_activity', 'activities.id',
+                               'user_activity.activity_id')
+                          ->join('games', 'games.id',
+                                 'activities.game_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where('user_id', '=', $user->id)
+                          ->where($data['category'], 'LIKE',
+                             '%'.$data['search'].'%')
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+      $activity_types = ActivityType::all();
+
+      return view('user_activities', [
+        'user_activities' => $user_activities,
+        'activity_info' => $activity_info,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
     public function activity()
     {
       $user = Auth::user();
@@ -75,5 +190,38 @@ class HomeController extends Controller
         'activity_info' => $activity_info,
         'activity_types' => $activity_types,
       ]);
+    }
+
+    public function register_form($activity)
+    {
+      $activity = Activity::find($activity);
+      $activity_roles = ActivityRole::all();
+
+      return view('activity_register', [
+        'activity' => $activity,
+        'activity_roles' => $activity_roles,
+      ]);
+    }
+
+    public function register($activity)
+    {
+      $activity = Activity::find($activity);
+
+      $data = request()->validate([
+        'activity_role_id' => 'required',
+        'place' => 'required',
+      ]);
+
+      DB::table('user_activity')
+          ->insert([
+            'activity_id' => $activity->id,
+            'user_id' => Auth::user()->id,
+            'activity_role_id' => $data['activity_role_id'],
+            'place' => $data['place'],
+            'start_date' => $activity->start_date,
+            'end_date' => $activity->end_date,
+          ]);
+
+      return redirect('/user/activity');
     }
 }

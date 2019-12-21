@@ -9,12 +9,7 @@
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Усі участі</h1>
       <div class="row justify-content-center mb-3">
-        <a href="#" class="btn btn-block btn-warning w-50" role="button">
-          Анонси
-        </a>
-      </div>
-      <div class="row justify-content-center mb-3">
-        <form action="/activity/filter" method="GET" class="form-inline mr-3">
+        <form action="/user/activity/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
@@ -34,7 +29,7 @@
             </div>
           </div>
         </form>
-        <form action="/activity/search" method="GET"
+        <form action="/user/activity/search" method="GET"
          class="form-inline w-50 mr-3">
           @csrf
           <div class="input-group">

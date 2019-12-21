@@ -88,7 +88,9 @@ class ActivityController extends Controller
 
     public function show($activity)
     {
-      return view('activities', [
+      $activity = Activity::find($activity);
+
+      return view('activity', [
         'activity' => $activity,
       ]);
     }

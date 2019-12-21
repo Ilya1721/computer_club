@@ -14,7 +14,7 @@
       <span id="category">Анонси</span>
       @foreach($annonces as $annonce)
         <div class="mb-2">
-          <a class="text-white" href="/event/1">
+          <a class="text-white" href="/activity/{{ $annonce->id }}">
             З {{ date('d.m.Y H:i', strtotime($annonce->start_date)) }}<br/>
             по {{ date('d.m.Y H:i', strtotime($annonce->end_date)) }}
             Відбудеться<br/>
@@ -26,7 +26,7 @@
       <span id="category">Останні події</span>
       @foreach($news as $new)
         <div class="mb-2">
-          <a class="text-white" href="/event/1">
+          <a class="text-white" href="/activity/{{ $new->id }}">
             З {{ date('d.m.Y H:i', strtotime($new->start_date)) }}<br/>
             по {{ date('d.m.Y H:i', strtotime($new->end_date)) }}
             Відбувся<br/>
