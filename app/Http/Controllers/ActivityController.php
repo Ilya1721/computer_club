@@ -34,23 +34,9 @@ class ActivityController extends Controller
     {
       $activity_types = ActivityType::all();
       $games = Game::all();
-      $halls = Hall::create();
-
-      return view('create_activity', [
-        'activity_types' => $activity_types,
-        'games' => $games,
-        'halls' => $halls,
-      ]);
-    }
-
-    public function edit(Activity $activity)
-    {
-      $activity_types = ActivityType::all();
-      $games = Game::all();
       $halls = Hall::all();
 
-      return view('edit_activity', [
-        'activity' => $activity,
+      return view('create_activity', [
         'activity_types' => $activity_types,
         'games' => $games,
         'halls' => $halls,
@@ -75,6 +61,20 @@ class ActivityController extends Controller
       Activity::updateOrCreate($data);
 
       return redirect('/admin/activities');
+    }
+
+    public function edit(Activity $activity)
+    {
+      $activity_types = ActivityType::all();
+      $games = Game::all();
+      $halls = Hall::all();
+
+      return view('edit_activity', [
+        'activity' => $activity,
+        'activity_types' => $activity_types,
+        'games' => $games,
+        'halls' => $halls,
+      ]);
     }
 
     public function update(Activity $activity)
