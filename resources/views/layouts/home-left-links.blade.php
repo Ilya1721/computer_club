@@ -45,5 +45,8 @@
 <a href="/admin/activity-types" class="yellow-link big-link">
   Типи івентів
 </a><br />
+<a href="/admin/activity-roles" class="yellow-link big-link">
+  Типи відвідувачів
+</a><br />
 @endif
 @endauth

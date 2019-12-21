@@ -54,6 +54,14 @@
           </div>
         </form>
       </div>
+      @auth()
+      @if(Auth::user()->role_id == 1)
+      <a href="/admin/genres/create"
+         class="btn btn-block w-25 mb-3 btn-warning">
+        Додати івент
+      </a>
+      @endif
+      @endauth
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
@@ -62,6 +70,11 @@
             <th>Дата і час кінця івенту</th>
             <th>Ціна</th>
             <th>Зал</th>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <th></th>
+            @endif
+            @endauth
           </tr>
         </thead>
         <tbody>
@@ -77,6 +90,22 @@
             <td>{{ date('d.m.Y H:i', strtotime($event->end_date)) }}</td>
             <td>{{ $event->price }} грн.</td>
             <td>{{ $event->hall->name }}</td>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <td>
+              <div class="d-flex">
+                <a href="/admin/activities/{{ $event->id }}/edit" class="btn btn-warning mr-3">
+                  Edit
+                </a>
+                <form method="post" action="/admin/activities/{{ $event->id }}">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+              </div>
+            </td>
+            @endif
+            @endauth
           </tr>
           @endforeach
         </tbody>
