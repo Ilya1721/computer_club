@@ -16,7 +16,7 @@ Route::get('/', 'WelcomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user/activity', 'HomeController@event');
+Route::get('/user/activity', 'HomeController@activity');
 Route::get('/activity', 'ActivityController@index');
 Route::get('/activity/filter', 'ActivityController@filter');
 Route::get('/activity/search', 'ActivityController@search');

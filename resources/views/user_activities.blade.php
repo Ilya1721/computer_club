@@ -14,16 +14,15 @@
         </a>
       </div>
       <div class="row justify-content-center mb-3">
-        <form action="/game/filter" method="post" class="form-inline mr-3">
+        <form action="/activity/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">
-                Турнір
+              @foreach($activity_types as $activity_type)
+              <option value="{{ $activity_type->id }}">
+                {{ $activity_type->name }}
               </option>
-              <option value="2">
-                Виставка
-              </option>
+              @endforeach
               <option value="all">
                 Усі івенти
               </option>
@@ -35,12 +34,12 @@
             </div>
           </div>
         </form>
-        <form action="/game/search" method="post"
+        <form action="/activity/search" method="GET"
          class="form-inline w-50 mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
-              <option value="1">Назва</option>
+              <option value="games.name">Назва гри</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"
@@ -68,10 +67,10 @@
         </thead>
         <tbody>
           @php($i = 0)
-          @foreach($user_events as $user_event)
+          @foreach($user_activities as $user_activity)
           <tr>
             <td>
-              <a href="/event/1" class="text-white">
+              <a href="/activity/1" class="text-white">
                 {{ $activity_info[$i]->activity_type->name }}
                 по
                 <span id="game-name">
@@ -79,14 +78,14 @@
                 </span>
               </a>
             </td>
-            <td>{{ date('d.m.Y-H:i', strtotime($user_event->start_date)) }}</td>
-            <td>{{ date('G', strtotime($user_event->end_date) -
-                             strtotime($user_event->start_date)) }} години
+            <td>{{ date('d.m.Y-H:i', strtotime($user_activity->start_date)) }}</td>
+            <td>{{ date('G', strtotime($user_activity->end_date) -
+                             strtotime($user_activity->start_date)) }} години
             </td>
-            <td>{{ $user_event->name }}</td>
-            <td>{{ $user_event->price }} грн.</td>
+            <td>{{ $user_activity->name }}</td>
+            <td>{{ $user_activity->price }} грн.</td>
             <td>{{ $activity_info[$i]->hall->name }}</td>
-            <td>{{ $user_event->place }}</td>
+            <td>{{ $user_activity->place }}</td>
           </tr>
           @php($i++)
           @endforeach
@@ -97,7 +96,7 @@
   </div>
   <div class="row mt-3">
     <div class="col-12 d-flex justify-content-center">
-      {{ $user_events->links() }}
+      {{ $user_activities->links() }}
     </div>
   </div>
 </div>
