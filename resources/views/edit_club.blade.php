@@ -95,7 +95,7 @@
               </label>
 
               <div class="col-md-6">
-                <input id="phone" type="text"
+                <input id="phone" type="tel"
                  class="form-control @error('phone') is-invalid @enderror"
                  name="phone" value="{{ old('phone') ?? $club->phone }}"
                  required autocomplete="phone" autofocus>
