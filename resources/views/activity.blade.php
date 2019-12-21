@@ -10,9 +10,7 @@
       <h1 class="text-yellow">
         Турнір по <span id="game-name">{{ $activity->game->name }}</span>
       </h1>
-      @php(
-        date_default_timezone_set('Europe/Kiev')
-      )
+      @php(date_default_timezone_set('Europe/Kiev'))
       @if(strtotime($activity->end_date) -
           strtotime(date('Y-m-d H:i:s')) > 0)
       <div class="row justify-content-center mb-3">

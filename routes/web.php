@@ -23,6 +23,8 @@ Route::get('/activity', 'ActivityController@index');
 Route::get('/activity/filter', 'ActivityController@filter');
 Route::get('/activity/search', 'ActivityController@search');
 Route::get('/activity/{id}', 'ActivityController@show');
+Route::get('/activity/{id}/register', 'HomeController@register_form');
+Route::post('/activity/{id}/register', 'HomeController@register');
 Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');

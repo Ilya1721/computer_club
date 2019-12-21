@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Activity;
 use App\ActivityType;
+use App\ActivityRole;
 
 class HomeController extends Controller
 {
@@ -189,5 +190,38 @@ class HomeController extends Controller
         'activity_info' => $activity_info,
         'activity_types' => $activity_types,
       ]);
+    }
+
+    public function register_form($activity)
+    {
+      $activity = Activity::find($activity);
+      $activity_roles = ActivityRole::all();
+
+      return view('activity_register', [
+        'activity' => $activity,
+        'activity_roles' => $activity_roles,
+      ]);
+    }
+
+    public function register($activity)
+    {
+      $activity = Activity::find($activity);
+
+      $data = request()->validate([
+        'activity_role_id' => 'required',
+        'place' => 'required',
+      ]);
+
+      DB::table('user_activity')
+          ->insert([
+            'activity_id' => $activity->id,
+            'user_id' => Auth::user()->id,
+            'activity_role_id' => $data['activity_role_id'],
+            'place' => $data['place'],
+            'start_date' => $activity->start_date,
+            'end_date' => $activity->end_date,
+          ]);
+
+      return redirect('/user/activity');
     }
 }
