@@ -96,4 +96,11 @@ class ActivityController extends Controller
 
       return redirect('/admin/activities');
     }
+
+    public function destroy(Activity $activity)
+    {
+      $activity->delete();
+
+      return redirect('/admin/activities');
+    }
 }
