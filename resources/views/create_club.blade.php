@@ -94,7 +94,7 @@
               </label>
 
               <div class="col-md-6">
-                <input id="phone" type="text"
+                <input id="phone" type="tel"
                  class="form-control @error('phone') is-invalid @enderror"
                  name="phone" value="{{ old('phone') }}"
                  required autocomplete="phone" autofocus>
@@ -116,7 +116,7 @@
                 <textarea id="schedule"
                  class="form-control @error('schedule') is-invalid @enderror"
                  name="schedule" required autocomplete="schedule" autofocus>
-                 
+
                 </textarea>
 
                 @error('schedule')

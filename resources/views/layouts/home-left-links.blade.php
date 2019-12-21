@@ -2,10 +2,10 @@
 <a href="/home" class="yellow-link big-link">
   Візити
 </a><br />
-<a href="/user/event" class="yellow-link big-link">
+<a href="/user/activity" class="yellow-link big-link">
   Участь в івентах
 </a><br />
-<a href="/event" class="yellow-link big-link">
+<a href="/activity" class="yellow-link big-link">
   Усі івенти
 </a><br />
 <a href="/game" class="yellow-link big-link">
@@ -44,6 +44,12 @@
 </a><br />
 <a href="/admin/activity-types" class="yellow-link big-link">
   Типи івентів
+</a><br />
+<a href="/admin/activity-roles" class="yellow-link big-link">
+  Типи відвідувачів
+</a><br />
+<a href="/admin/activities" class="yellow-link big-link">
+  Івенти
 </a><br />
 @endif
 @endauth

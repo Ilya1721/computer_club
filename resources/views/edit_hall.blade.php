@@ -41,7 +41,7 @@
               <div class="col-md-6">
                 <select id="club_id" name="club_id"
                  autofocus class="form-control"
-                 selected value="{{ $hall->club->name }}">
+                 selected value="{{ $hall->club->id }}">
                  <option value="{{ $club->id }}">
                    {{ $hall->club->name }}
                  </option>
