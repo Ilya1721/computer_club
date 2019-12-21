@@ -14,7 +14,7 @@
         </a>
       </div>
       <div class="row justify-content-center mb-3">
-        <form action="/activity/filter" method="POST" class="form-inline mr-3">
+        <form action="/activity/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">

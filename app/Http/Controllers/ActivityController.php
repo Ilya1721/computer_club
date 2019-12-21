@@ -61,9 +61,34 @@ class ActivityController extends Controller
       ]);
     }
 
+    public function search()
+    {
+      $data = request()->validate([
+        'category' => '',
+        'search' => '',
+      ]);
+
+      $activities = Activity::query()
+                          ->join('games', 'games.id',
+                                 'activities.game_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where($data['category'], 'LIKE',
+                             '%'.$data['search'].'%')
+                          ->orderBy('activities.end_date', 'DESC')
+                          ->paginate(10);
+
+      $activity_types = ActivityType::all();
+
+      return view('activities', [
+        'activities' => $activities,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
     public function show($activity)
     {
-      return view('activity', [
+      return view('activities', [
         'activity' => $activity,
       ]);
     }
