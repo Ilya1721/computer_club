@@ -45,6 +45,50 @@ class HomeController extends Controller
        ]);
     }
 
+    public function filter()
+    {
+      $data = request()->validate([
+        'category' => '',
+      ]);
+
+      if($data['category'] != 'all')
+      {
+        $activities = Activity::query()
+                          ->join('activity_types', 'activity_types.id', '=',
+                                 'activities.activity_type_id')
+                          ->join('user_activity', 'activities.id',
+                                'user_activity.activity_id')
+                          ->join('activity_roles', 'activity_roles.id',
+                                'user_activity.activity_role_id')
+                          ->whereNotNull('activities.game_id')
+                          ->whereNotNull('activities.end_date')
+                          ->where('user_id', '=', $user->id)
+                          ->where('activities.activity_type_id', '=',
+                                  $data['category'])
+                          ->orderBy('end_date', 'DESC')
+                          ->paginate(10);
+      }
+      else
+      {
+        $activities = Activity::query()
+                            ->join('user_activity', 'activities.id',
+                                   'user_activity.activity_id')
+                            ->join('activity_roles', 'activity_roles.id',
+                                   'user_activity.activity_role_id')
+                            ->whereNotNull('game_id')
+                            ->whereNotNull('end_date')
+                            ->orderBy('end_date', 'DESC')
+                            ->paginate(10);
+      }
+
+      $activity_types = ActivityType::all();
+
+      return view('user_activities', [
+        'activities' => $activities,
+        'activity_types' => $activity_types,
+      ]);
+    }
+
     public function activity()
     {
       $user = Auth::user();
