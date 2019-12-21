@@ -34,10 +34,12 @@ class ActivityController extends Controller
     {
       $activity_types = ActivityType::all();
       $games = Game::all();
+      $halls = Hall::create();
 
       return view('create_activity', [
         'activity_types' => $activity_types,
         'games' => $games,
+        'halls' => $halls,
       ]);
     }
 
@@ -51,6 +53,7 @@ class ActivityController extends Controller
         'activity' => $activity,
         'activity_types' => $activity_types,
         'games' => $games,
+        'halls' => $halls,
       ]);
     }
 
@@ -58,7 +61,7 @@ class ActivityController extends Controller
     {
       $data = request()->validate([
         'activity_type_id' => 'required',
-        'hall_id' => 'required,'
+        'hall_id' => 'required',
         'game_id' => 'required',
         'description' => 'required',
         'price' => 'required',
