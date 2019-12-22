@@ -224,4 +224,17 @@ class HomeController extends Controller
 
       return redirect('/user/activity');
     }
+
+    public function unregister($activity)
+    {
+      $activity = Activity::find($activity);
+      $user = Auth::user();
+
+      DB::table('user_activity')
+          ->where('activity_id', '=', $activity->id)
+          ->where('user_id', '=', $user->id)
+          ->delete();
+
+      return redirect('/user/activity');
+    }
 }

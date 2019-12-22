@@ -13,12 +13,14 @@
       @php(date_default_timezone_set('Europe/Kiev'))
       @if(strtotime($activity->end_date) -
           strtotime(date('Y-m-d H:i:s')) > 0)
-        @if($is_registered)
+        @if(!$is_registered->isEmpty())
         <div class="row justify-content-center mb-3">
-          <a href="/activity/{{ $activity->id }}/unregister"
-             class="btn btn-block btn-danger w-50" role="button">
-            Відмінити реєстрацію
-          </a>
+          <form action="/activity/{{ $activity->id }}/unregister"
+                method="POST">
+          @csrf
+            <input type="submit" class="btn btn-block btn-danger w-100"
+                   value="Відмінити реєстрацію">
+          </form>
         </div>
         @else
         <div class="row justify-content-center mb-3">
