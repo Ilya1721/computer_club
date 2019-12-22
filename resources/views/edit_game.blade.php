@@ -55,6 +55,12 @@
                    @endforeach
                   </select>
                 @endforeach
+                <div class="d-flex mt-2">
+                  <button class="btn btn-info" type="button"
+                   onClick="more_genres()">Більше жанрів</button>
+                  <button class="btn btn-danger ml-1" type="button"
+                   onClick="less_genres()">Менше жанрів</button>
+                </div>
               </div>
             </div>
 
@@ -121,8 +127,17 @@
 @endsection
 
 <script>
+function more_genres()
+{
+  $("#genres").append("<select>")
+              .append("<option value='1'>RGG</option>")
+              .append("</select>");
+}
 
+function less_genres()
+{
 
+}
 
 
 
