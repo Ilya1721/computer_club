@@ -60,7 +60,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-link" href="/visit/create">
+              <a class="nav-link" id="nav-link"
+                 href="/user/activity/visit/register">
                 Забронювати місце
               </a>
             </li>
@@ -136,7 +137,9 @@
             <div class="d-flex justify-content-center">
               <a href="/price" id="footer-link">Ціни</a>
               <a href="/schedule" id="footer-link">Режим роботи</a>
-              <a href="/visit/create" id="footer-link">Забронювати місце</a>
+              <a href="/user/activity/visit/register" id="footer-link">
+                Забронювати місце
+              </a>
             </div>
           </div>
           <div id="footer-contacts" class="col-4 text-justify">

@@ -9,7 +9,7 @@
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Усі ігри</h1>
       <div class="row justify-content-center mb-3">
-        <form action="/game/filter" method="post" class="form-inline mr-3">
+        <form action="/game/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
@@ -29,13 +29,12 @@
             </div>
           </div>
         </form>
-        <form action="/game/search" method="post"
+        <form action="/game/search" method="GET"
          class="form-inline w-50 mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
               <option value="name">Назва</option>
-              <option value="genre">Жанр</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"
@@ -49,6 +48,14 @@
           </div>
         </form>
       </div>
+      @auth()
+      @if(Auth::user()->role_id == 1)
+      <a href="/admin/games/create"
+         class="btn btn-block w-25 mb-3 btn-warning">
+        Додати гру
+      </a>
+      @endif
+      @endauth
       <table class="table table-dark text-yellow" id="visits">
         <thead>
           <tr>
@@ -57,6 +64,11 @@
             <th>Назва</th>
             <th>Жанр</th>
             <th>Платформи</th>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <th></th>
+            @endif
+            @endauth
           </tr>
         </thead>
         <tbody>
@@ -71,6 +83,23 @@
               @endforeach
             </td>
             <td>ПК Windows</td>
+            @auth()
+            @if(Auth::user()->role_id == 1)
+            <td>
+              <div class="d-flex">
+                <a href="/admin/games/{{ $game->id }}/edit"
+                   class="btn btn-warning mr-3">
+                  Edit
+                </a>
+                <form method="post" action="/admin/games/{{ $game->id }}">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+              </div>
+            </td>
+            @endif
+            @endauth
           </tr>
           @endforeach
         </tbody>

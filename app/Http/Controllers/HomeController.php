@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Activity;
 use App\ActivityType;
 use App\ActivityRole;
+use App\Hall;
 
 class HomeController extends Controller
 {
@@ -192,6 +193,49 @@ class HomeController extends Controller
       ]);
     }
 
+    public function register_visit_form()
+    {
+      $halls = Hall::all();
+      $activity = Activity::query()
+                            ->join('activity_types', 'activity_types.id',
+                                   'activities.activity_type_id')
+                            ->where('activity_types.name', '=', 'Візит')
+                            ->first();
+
+      return view('visit_register', [
+        'halls' => $halls,
+        'activity' => $activity,
+      ]);
+    }
+
+    public function register_visit()
+    {
+      $data = request()->validate([
+        'hall_id' => 'required',
+        'place' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
+      ]);
+      $data['user_id'] = Auth::user()->id;
+      $data['activity_role_id'] = ActivityRole::query()
+                                  ->where('activity_roles.name', '=', 'Гравець')
+                                  ->first()->id;
+      $data['activity_id'] = Activity::query()
+                             ->where('hall_id', '=', $data['hall_id'])
+                             ->first()->id;
+
+      DB::table('user_activity')->insert([
+        'activity_id' => $data['activity_id'],
+        'user_id' => $data['user_id'],
+        'activity_role_id' => $data['activity_role_id'],
+        'place' => $data['place'],
+        'start_date' => $data['start_date'],
+        'end_date' => $data['end_date'],
+      ]);
+
+      return redirect('/home');
+    }
+
     public function register_form($activity)
     {
       $activity = Activity::find($activity);
@@ -221,6 +265,19 @@ class HomeController extends Controller
             'start_date' => $activity->start_date,
             'end_date' => $activity->end_date,
           ]);
+
+      return redirect('/user/activity');
+    }
+
+    public function unregister($activity)
+    {
+      $activity = Activity::find($activity);
+      $user = Auth::user();
+
+      DB::table('user_activity')
+          ->where('activity_id', '=', $activity->id)
+          ->where('user_id', '=', $user->id)
+          ->delete();
 
       return redirect('/user/activity');
     }

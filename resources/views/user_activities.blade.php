@@ -65,7 +65,8 @@
           @foreach($user_activities as $user_activity)
           <tr>
             <td>
-              <a href="/activity/1" class="text-white">
+              <a href="/activity/{{ $user_activity->activity_id }}"
+                 class="text-white">
                 {{ $activity_info[$i]->activity_type->name }}
                 по
                 <span id="game-name">

@@ -20,7 +20,7 @@
 <a href="/schedule" class="yellow-link big-link">
   Режим роботи
 </a><br />
-<a href="/visit/create" class="yellow-link big-link">
+<a href="/user/activity/visit/register" class="yellow-link big-link">
   Забронювати місце
 </a><br />
 

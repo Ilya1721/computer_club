@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Activity;
 use App\ActivityType;
 use App\Game;
@@ -89,9 +91,39 @@ class ActivityController extends Controller
     public function show($activity)
     {
       $activity = Activity::find($activity);
+      $user = Auth::user();
+
+      $is_registered = DB::table('user_activity')
+                           ->where('activity_id', '=', $activity->id)
+                           ->where('user_id', '=', $user->id)
+                           ->select('user_id')
+                           ->get();
 
       return view('activity', [
         'activity' => $activity,
+        'is_registered' => $is_registered,
+      ]);
+    }
+
+    public function users($activity)
+    {
+      $activity = Activity::find($activity);
+      $user = Auth::user();
+
+      $users = Activity::query()
+                  ->join('user_activity', 'activities.id',
+                         'user_activity.activity_id')
+                  ->join('users', 'users.id', 'user_activity.user_id')
+                  ->join('activity_roles', 'activity_roles.id',
+                         'user_activity.activity_role_id')
+                  ->where('user_activity.activity_id', '=',
+                          $activity->id)
+                  ->orderBy('user_activity.start_date', 'DESC')
+                  ->paginate(10);
+
+      return view('activity_users', [
+        'activity' => $activity,
+        'users' => $users,
       ]);
     }
 
