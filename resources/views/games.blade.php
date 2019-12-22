@@ -35,7 +35,6 @@
           <div class="input-group">
             <select name="category" class="form-control">
               <option value="name">Назва</option>
-              <option value="genre">Жанр</option>
             </select>
             <input id="search" name="search"
              class="w-50 input-group-append"

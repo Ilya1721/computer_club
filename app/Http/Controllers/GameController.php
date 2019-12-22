@@ -55,21 +55,16 @@ class GameController extends Controller
         'search' => '',
       ]);
 
-      $activities = Activity::query()
-                          ->join('games', 'games.id',
-                                 'activities.game_id')
-                          ->whereNotNull('activities.game_id')
-                          ->whereNotNull('activities.end_date')
-                          ->where($data['category'], 'LIKE',
-                             '%'.$data['search'].'%')
-                          ->orderBy('activities.end_date', 'DESC')
-                          ->paginate(10);
+      $games = Game::query()
+                   ->where($data['category'], 'LIKE',
+                     '%'.$data['search'].'%')
+                   ->paginate(10);
 
-      $activity_types = ActivityType::all();
+      $genres = Genre::all();
 
-      return view('activities', [
-        'activities' => $activities,
-        'activity_types' => $activity_types,
+      return view('games', [
+        'games' => $games,
+        'genres' => $genres,
       ]);
     }
 }
