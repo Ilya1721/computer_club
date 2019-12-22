@@ -9,7 +9,7 @@
     <div class="col-8 pl-0">
       <h1 class="text-yellow">Усі ігри</h1>
       <div class="row justify-content-center mb-3">
-        <form action="/game/filter" method="post" class="form-inline mr-3">
+        <form action="/game/filter" method="GET" class="form-inline mr-3">
           @csrf
           <div class="input-group">
             <select name="category" class="form-control">
@@ -29,7 +29,7 @@
             </div>
           </div>
         </form>
-        <form action="/game/search" method="post"
+        <form action="/game/search" method="GET"
          class="form-inline w-50 mr-3">
           @csrf
           <div class="input-group">

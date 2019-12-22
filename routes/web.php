@@ -30,6 +30,8 @@ Route::post('/activity/{id}/register', 'HomeController@register');
 Route::post('/activity/{id}/unregister', 'HomeController@unregister');
 Route::get('/admin/activities/{id}/users', 'ActivityController@users');
 Route::get('/game', 'GameController@index');
+Route::get('/game/filter', 'GameController@filter');
+Route::get('/game/search', 'GameController@search');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');
 Route::get('/schedule', 'ScheduleController@index');
