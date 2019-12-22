@@ -25,6 +25,7 @@ Route::get('/activity/search', 'ActivityController@search');
 Route::get('/activity/{id}', 'ActivityController@show');
 Route::get('/activity/{id}/register', 'HomeController@register_form');
 Route::post('/activity/{id}/register', 'HomeController@register');
+Route::get('/admin/activities/{id}/users', 'ActivityController@users');
 Route::get('/game', 'GameController@index');
 Route::get('/platform', 'PlatformController@index');
 Route::get('/price', 'PriceController@index');

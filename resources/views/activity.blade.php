@@ -13,19 +13,34 @@
       @php(date_default_timezone_set('Europe/Kiev'))
       @if(strtotime($activity->end_date) -
           strtotime(date('Y-m-d H:i:s')) > 0)
-      <div class="row justify-content-center mb-3">
-        <a href="/activity/{{ $activity->id }}/register"
-           class="btn btn-block btn-warning w-50" role="button">
-          Зареєструватись
-        </a>
-      </div>
+        @if($is_registered)
+        <div class="row justify-content-center mb-3">
+          <a href="/activity/{{ $activity->id }}/unregister"
+             class="btn btn-block btn-danger w-50" role="button">
+            Відмінити реєстрацію
+          </a>
+        </div>
+        @else
+        <div class="row justify-content-center mb-3">
+          <a href="/activity/{{ $activity->id }}/register"
+             class="btn btn-block btn-warning w-50" role="button">
+            Зареєструватись
+          </a>
+        </div>
+        @endif
       @endif
       @auth()
       @if(Auth::user()->role_id == 1)
-      <a href="/admin/activities/{{ $activity->id }}/edit"
-         class="btn btn-block w-25 mb-3 btn-warning">
-        Редагувати івент
-      </a>
+      <div class="row mb-3">
+        <a href="/admin/activities/{{ $activity->id }}/edit"
+           class="btn w-25 btn-warning">
+          Редагувати івент
+        </a>
+        <a href="/admin/activities/{{ $activity->id }}/users"
+           class="btn w-25 ml-3 btn-warning">
+          Зареєстровані користувачі
+        </a>
+      </div>
       @endif
       @endauth
       <p class="text-white text-middle text-justify">
