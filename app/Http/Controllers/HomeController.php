@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Activity;
 use App\ActivityType;
 use App\ActivityRole;
+use App\Hall;
 
 class HomeController extends Controller
 {
@@ -189,6 +190,21 @@ class HomeController extends Controller
         'user_activities' => $user_activities,
         'activity_info' => $activity_info,
         'activity_types' => $activity_types,
+      ]);
+    }
+
+    public function register_visit_form()
+    {
+      $halls = Hall::all();
+      $activity = Activity::query()
+                            ->join('activity_types', 'activity_types.id',
+                                   'activities.activity_type_id')
+                            ->where('activity_types.name', '=', 'Візит')
+                            ->first();
+
+      return view('visit_register', [
+        'halls' => $halls,
+        'activity' => $activity,
       ]);
     }
 

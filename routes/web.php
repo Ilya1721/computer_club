@@ -16,6 +16,8 @@ Route::get('/', 'WelcomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/activity/visit/register', 'HomeController@register_visit_form');
+Route::post('/user/activity/visit/register', 'HomeController@register_visit');
 Route::get('/user/activity', 'HomeController@activity');
 Route::get('/user/activity/filter', 'HomeController@filter');
 Route::get('/user/activity/search', 'HomeController@search');

@@ -9,7 +9,8 @@
     <div class="col-7 pl-0">
       <h1 class="text-yellow">Усі візити</h1>
       <div class="row justify-content-center mb-3">
-        <a href="/visit/create" class="btn btn-block btn-warning w-50" role="button">
+        <a href="/user/activity/visit/register"
+           class="btn btn-block btn-warning w-50" role="button">
           Забронювати місце
         </a>
       </div>
