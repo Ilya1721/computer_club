@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Game;
 use App\Genre;
+use App\Platform;
 
 class GameController extends Controller
 {
@@ -65,6 +66,18 @@ class GameController extends Controller
       return view('games', [
         'games' => $games,
         'genres' => $genres,
+      ]);
+    }
+
+    public function edit(Game $game)
+    {
+      $genres = Genre::all();
+      $platforms = Platform::all();
+
+      return view('edit_game', [
+        'game' => $game,
+        'genres' => $genres,
+        'platforms' => $platforms,
       ]);
     }
 }
