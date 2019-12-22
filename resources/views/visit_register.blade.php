@@ -9,7 +9,7 @@
 
         <div class="card-body">
           <form method="POST"
-                action="/user/hall/visit/register">
+                action="/user/activity/visit/register">
             @csrf
 
             <div class="form-group row">
@@ -50,21 +50,34 @@
             </div>
 
             <div class="form-group row">
-              <label for="hours" class="col-md-4 col-form-label text-md-right">
-                {{ __('Скільки годин') }}
+              <label for="start_date" class="col-md-4 col-form-label text-md-right">
+                {{ __('Дата і час початку') }}
               </label>
-
               <div class="col-md-6">
-                <input id="hours" type="number"
-                 class="form-control @error('hours') is-invalid @enderror"
-                 name="hours" value="{{ old('hours') }}"
-                 required autocomplete="hours" autofocus>
+                  <input id="start_date" name="start_date"
+                   type="datetime-local"
+                   class="form-control" />
+                  @error('start_date')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+            </div>
 
-                @error('hours')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
+            <div class="form-group row">
+              <label for="end_date" class="col-md-4 col-form-label text-md-right">
+                {{ __('Дата і час закінчення') }}
+              </label>
+              <div class="col-md-6">
+                  <input id="end_date" name="end_date"
+                   type="datetime-local"
+                   class="form-control" />
+                  @error('end_date')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
               </div>
             </div>
 
