@@ -15,6 +15,8 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('genre_id');
+            $table->unsignedBigInteger('platform_id');
             $table->string('name');
             $table->string('image');
             $table->timestamp('updated_at')->useCurrent();

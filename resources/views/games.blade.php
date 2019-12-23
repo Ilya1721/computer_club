@@ -78,11 +78,9 @@
             <td><img class="game-image" src="{{ $game->image }}" /></td>
             <td><span id="game-name">{{ $game->name }}</span></td>
             <td>
-              @foreach($game->genres as $genre)
-              {{ $genre->name }},
-              @endforeach
+              {{ $game->genre->name }},
             </td>
-            <td>ПК Windows</td>
+            <td>{{ $game->platform->name }}</td>
             @auth()
             @if(Auth::user()->role_id == 1)
             <td>
