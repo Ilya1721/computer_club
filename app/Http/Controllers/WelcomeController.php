@@ -14,10 +14,16 @@ class WelcomeController extends Controller
     {
       $games = Game::all()->take(10);
       $platforms = Platform::all();
+
       $annonces = Activity::query()
-                            ->where('end_date', '>', date('Y-m-d H:i:s'))
-                            ->get();
+                        ->whereNotNull('game_id')
+                        ->whereNotNull('end_date')
+                        ->where('end_date', '>', date('Y-m-d H:i:s'))
+                        ->get();
+
       $news = Activity::query()
+                        ->whereNotNull('game_id')
+                        ->whereNotNull('end_date')
                         ->where('end_date', '<', date('Y-m-d H:i:s'))
                         ->get();
 
