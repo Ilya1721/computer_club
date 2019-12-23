@@ -80,4 +80,29 @@ class GameController extends Controller
         'platforms' => $platforms,
       ]);
     }
+
+    public function update(Game $game)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'genre_id' => 'required',
+        'platform_id' => 'required',
+        'image' => '',
+      ]);
+
+      if(request('image'))
+      {
+        $imagePath = request('image')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(150, 150);
+        $image->save();
+        $imageArray = ['image' => '/storage/'.$imagePath];
+      }
+
+      $game->update(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/games');
+    }
 }
