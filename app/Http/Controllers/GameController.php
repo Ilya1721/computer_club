@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use App\Game;
 use App\Genre;
 use App\Platform;
@@ -69,6 +70,42 @@ class GameController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      $genres = Genre::all();
+      $platforms = Platform::all();
+
+      return view('create_game', [
+        'genres' => $genres,
+        'platforms' => $platforms,
+      ]);
+    }
+
+    public function store()
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'genre_id' => 'required',
+        'platform_id' => 'required',
+        'image' => '',
+      ]);
+
+      if(request('image'))
+      {
+        $imagePath = request('image')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(150, 150);
+        $image->save();
+        $imageArray = ['image' => '/storage/'.$imagePath];
+      }
+
+      Game::updateOrCreate(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/games');
+    }
+
     public function edit(Game $game)
     {
       $genres = Genre::all();
@@ -79,5 +116,37 @@ class GameController extends Controller
         'genres' => $genres,
         'platforms' => $platforms,
       ]);
+    }
+
+    public function update(Game $game)
+    {
+      $data = request()->validate([
+        'name' => 'required',
+        'genre_id' => 'required',
+        'platform_id' => 'required',
+        'image' => '',
+      ]);
+
+      if(request('image'))
+      {
+        $imagePath = request('image')->store('img', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(150, 150);
+        $image->save();
+        $imageArray = ['image' => '/storage/'.$imagePath];
+      }
+
+      $game->update(array_merge(
+          $data,
+          $imageArray ?? [],
+      ));
+
+      return redirect('/admin/games');
+    }
+
+    public function destroy(Game $game)
+    {
+      $game->delete();
+
+      return redirect('/admin/games');
     }
 }
