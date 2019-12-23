@@ -69,6 +69,17 @@ class GameController extends Controller
       ]);
     }
 
+    public function create()
+    {
+      $genres = Genre::all();
+      $platforms = Platform::all();
+
+      return view('create_game', [
+        'genres' => $genres,
+        'platforms' => $platforms,
+      ]);
+    }
+
     public function edit(Game $game)
     {
       $genres = Genre::all();
