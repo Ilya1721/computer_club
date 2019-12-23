@@ -142,4 +142,11 @@ class GameController extends Controller
 
       return redirect('/admin/games');
     }
+
+    public function destroy(Game $game)
+    {
+      $game->delete();
+
+      return redirect('/admin/games');
+    }
 }
