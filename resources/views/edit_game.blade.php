@@ -42,7 +42,7 @@
                 <select id="genre_id" name="genre_id"
                  autofocus class="form-control"
                  selected value="{{ $game->genre->id }}">
-                 <option value="{{ $genre->id }}">
+                 <option value="{{ $game->genre->id }}">
                    {{ $game->genre->name }}
                  </option>
                  @foreach($genres as $genre)
@@ -66,7 +66,7 @@
                 <select id="platform_id" name="platform_id"
                  autofocus class="form-control"
                  selected value="{{ $game->platform->id }}">
-                 <option value="{{ $platform->id }}">
+                 <option value="{{ $game->platform->id }}">
                    {{ $game->platform->name }}
                  </option>
                  @foreach($platforms as $platform)
@@ -78,28 +78,6 @@
                  @endforeach
                 </select>
               </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="platform_id"
-               class="col-md-4 col-form-label text-md-right">
-                {{ __('Платформа') }}
-              </label>
-
-                <select id="platform_id" name="platform_id[]"
-                 autofocus class="form-control"
-                 selected value="{{ $game_platform->id }}">
-                 <option value="{{ $game_platform->id }}">
-                   {{ $game_platform->name }}
-                 </option>
-                 @foreach($platforms as $platform)
-                 @if($platform->id != $game_platform->id)
-                 <option value="{{ $platform->id }}">
-                   {{ $platform->name }}
-                 </option>
-                 @endif
-                 @endforeach
-                </select>
             </div>
 
             <div class="form-group row">
