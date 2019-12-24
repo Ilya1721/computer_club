@@ -93,16 +93,26 @@ class ActivityController extends Controller
       $activity = Activity::find($activity);
       $user = Auth::user();
 
-      $is_registered = DB::table('user_activity')
-                           ->where('activity_id', '=', $activity->id)
-                           ->where('user_id', '=', $user->id)
-                           ->select('user_id')
-                           ->get();
+      if($user)
+      {
+        $is_registered = DB::table('user_activity')
+                             ->where('activity_id', '=', $activity->id)
+                             ->where('user_id', '=', $user->id)
+                             ->select('user_id')
+                             ->get();
 
-      return view('activity', [
-        'activity' => $activity,
-        'is_registered' => $is_registered,
-      ]);
+        return view('activity', [
+          'activity' => $activity,
+          'is_registered' => $is_registered,
+        ]);
+      }
+      else
+      {
+        return view('activity', [
+          'activity' => $activity,
+          'is_registered' => null,
+        ]);
+      }
     }
 
     public function users($activity)
